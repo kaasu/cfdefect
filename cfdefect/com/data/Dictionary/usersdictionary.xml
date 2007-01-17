@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<users>
+		<ID>
+			<label>ID</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The ID field is required but was not provided.</notProvided>
+			<invalidType>The ID field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The ID field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</ID>
+		<NAME>
+			<label>NAME</label>
+			<comment/>
+			<maxlength>50</maxlength>
+			<notProvided>The NAME field is required but was not provided.</notProvided>
+			<invalidType>The NAME field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The NAME field is too long.  This field must be no more than 50 bytes long.</invalidLength>
+		</NAME>
+		<USERNAME>
+			<label>USERNAME</label>
+			<comment/>
+			<maxlength>50</maxlength>
+			<notProvided>The USERNAME field is required but was not provided.</notProvided>
+			<invalidType>The USERNAME field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The USERNAME field is too long.  This field must be no more than 50 bytes long.</invalidLength>
+		</USERNAME>
+		<PASSWORD>
+			<label>PASSWORD</label>
+			<comment/>
+			<maxlength>50</maxlength>
+			<notProvided>The PASSWORD field is required but was not provided.</notProvided>
+			<invalidType>The PASSWORD field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The PASSWORD field is too long.  This field must be no more than 50 bytes long.</invalidLength>
+			<doNotMatch>The two passwords do not match.</doNotMatch>
+		</PASSWORD>
+		<EMAILADDRESS>
+			<label>EMAILADDRESS</label>
+			<comment/>
+			<maxlength>50</maxlength>
+			<notProvided>The EMAILADDRESS field is required but was not provided.</notProvided>
+			<invalidType>The EMAILADDRESS field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The EMAILADDRESS field is too long.  This field must be no more than 50 bytes long.</invalidLength>
+		</EMAILADDRESS>
+	</users>

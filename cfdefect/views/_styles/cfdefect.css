@@ -1,0 +1,556 @@
+/*********************************************
+ * TITLE: Tierra Verde Screen Stylesheet     * 
+ * URI  : tierraverde/tierraverde-screen.css *
+ * MODIF: 2003-Apr-30 19:21 +0800            *
+ *********************************************/
+/* ##### Common Styles ##### */
+#rsslist{
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+#rsslist li
+{
+	padding-left: 45px;
+	background-image: url(../_images/xml.gif);
+	background-repeat: no-repeat;
+	background-position: 0 .5em;
+}
+
+body {
+  color: rgb(34,70,79);
+  background-color: rgb(171,195,172);
+  font-family: verdana, helvetica, arial, sans-serif;
+  font-size: 78%;  /* Enables font size scaling in MSIE */
+  margin: 0;
+  padding: 0;
+}
+
+html > body {
+  font-size: 9.5pt;
+}
+
+acronym, .titleTip {
+  border-bottom: 1px dotted rgb(34,70,79);
+  cursor: help;
+}
+
+.doNotDisplay {
+  display: none !important;
+}
+
+.smallCaps {
+  font-size: 110%;
+  font-variant: small-caps;
+}
+
+
+/* ##### Header ##### */
+
+#header {
+  color: white;
+  background-color: rgb(34,70,79);
+  margin: 0 0 2em 0;
+  padding: 0 2.5mm 1ex 4mm;
+  border-bottom: 2px solid white;
+}
+
+.headerTitle {
+  margin: 0;
+  padding: 0;
+}
+
+.headerTitle a {
+  color: rgb(205,219,205);
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 83%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.headerTitle > a {
+  font-size: 105%;  /* For fully standards-compliant user agents */
+}
+
+.headerTitle span {
+  color: white;
+  background-color: transparent;
+  font-weight: normal;
+}
+
+.headerLinks {
+  font-size: 89%;
+  position: absolute;
+  right: 2ex;
+  top: 2.25em;
+}
+
+[class~="headerLinks"] {
+  top: 1.75em;  /* For fully standards-compliant user agents */
+}
+
+.headerLinks a {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 1ex;
+}
+
+.headerLinks a:hover {
+  color: rgb(171,195,172);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+/* ##### Side Bar ##### */
+
+#side-bar {
+  font-size: 95%;
+  text-align: right;
+  width: 11em;
+  float: left;
+  clear: left;
+}
+
+.sideBarTitle {
+  color: rgb(34,70,79);
+  background-color: rgb(205,219,205);
+  font-size: 100%;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5ex 1em 0.5ex 0.5ex;
+  border-top: 1px solid rgb(34,70,79);
+}
+
+#side-bar ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0;
+  padding: 0;
+}
+
+#side-bar li {
+  margin: 0;
+  padding: 1ex 1em 1ex 0.5ex;
+  border-top: 1px solid rgb(34,70,79);
+}
+
+#side-bar a {
+  color: rgb(34,70,79);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#side-bar a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.sideBarText {
+  text-align: justify;
+  margin: 0;
+  padding: 1ex 1.5ex;
+  display: block;
+  border-top: 1px solid rgb(34,70,79);
+}
+
+#side-bar .sideBarText a {
+  text-decoration: underline;
+}
+
+#side-bar .sideBarText a:hover {
+  text-decoration: none;
+}
+
+.thisPage {
+  font-weight: bold;
+}
+
+
+/* ##### Main Copy ##### */
+
+#main-copy {
+  text-align: justify;
+  line-height: 1.5em;
+  margin: 0 5mm 0 10.5em;
+  padding: 0 1em 1ex 1em;
+}
+
+p {
+  margin: 1em 0 1.5em 0;
+  padding: 0;
+}
+
+.darkerBox {
+  color: black;
+  background-color: transparent;
+  margin: 0 0 1em 0;
+  padding: 2ex 2em 0.25em 2em;
+  border: 1px solid rgb(34,70,79);
+}
+
+.lighterBox {
+  color: rgb(34,70,79);
+  background-color: rgb(205,219,205);
+  margin: 0 0 1em 0;
+  padding: 2ex 2em 0.25em 2em;
+  border: 1px solid rgb(34,70,79);
+  
+}
+	
+#main-copy h1 {
+  font-family: "trebuchet ms", verdana, tahoma, sans-serif;
+  font-size: 156%;
+  font-weight: bold;
+  margin: 0.25em 0 0 0;
+  padding: 0;
+}
+
+#main-copy a {
+  color: rgb(34,70,79);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#main-copy a:hover {
+  text-decoration: none;
+}
+
+dt {
+  font-weight: bold;
+  margin: 0;
+  padding: 0 0 0.5ex 0;
+}
+
+dd {
+  margin: 0 0 1.5em 1.5em;
+  padding: 0;
+}
+
+h1.title{
+	border-bottom: 1px solid black;
+}
+
+div.lighterBox div.left{
+	float:left;
+	width:70%;
+	padding:5px;
+	margin: 0;
+}
+div.lighterBox div.right{
+	float:right;
+	width:25%;
+	padding:5px;
+	margin: 0;
+}
+
+div.clear{
+	clear: both;
+}
+
+div#home div.right{
+	float:right;
+	width:30%;
+	padding:5px;
+	margin: 0;
+}
+
+h2.announcement{
+	font-size: 120%;
+  	font-weight: bold;
+  	margin: 0.25em 0 0 0;
+  	padding: 0;
+  	border-bottom: 1px dashed black;
+}
+
+h4{
+	background: url(../_images/info.gif) no-repeat top left;
+	  padding: 0 1px 1px 27px;
+	  border-width: 0 0 1px 0;
+	  border-style: solid;
+	  border-color: #666666;
+	  color: #666666;
+	  font-size: 90%;
+	  margin:2px;
+}
+
+div.help{
+	padding:0;
+	margin:0;
+}
+div.help p{
+	margin: 3px;
+	padding: 0;
+	color: #666;
+	font-size: 80%;
+}
+
+/* ##### Footer ##### */
+
+#footer {
+  color: white;
+  background-color: rgb(34,70,79);
+  font-size: 85%;
+  margin: 0;
+  padding: 1.25ex 4mm;
+  clear: both;
+}
+
+#footer .left {
+  float: left;
+  clear: left;
+}
+
+#footer .right {
+  text-align: right;
+}
+
+#footer a {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#footer a:hover {
+  text-decoration: none;
+}
+
+.subFooter {
+  font-size: 85%;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 1ex 4mm;
+}
+
+.subFooter a {
+  color: rgb(34,70,79);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.subFooter a:hover {
+  text-decoration: none;
+}
+
+div#home div.left{
+	float:left;
+	width:65%;
+	padding:10px;
+}
+/* CFDEFECT styles */
+
+/* ***************************************
+		tables 
+  ***************************************	*/
+table.data {
+	border-collapse: collapse;
+	border: 1px solid #3f7c5f;
+	font: normal 80%/140% arial, verdana, helvetica, sans-serif;
+	color: #000;
+	background: #fff;
+	width: 100%;
+}
+table.data caption {
+	padding: 0 0.6em 0.8em;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+	background: transparent;
+}
+
+table.data caption p{
+	font-weight: normal;
+}
+table.data td, table.data th {
+	border: 1px solid #e0e0e0;
+	padding: 0.5em;
+}
+
+table.data th.center, table.data td.center{
+	text-align: center;
+}
+table.data thead th {
+	border: 1px solid #e0e0e0;
+	text-align: left;
+	font-size: 1em;
+	font-weight: bold;
+	background: #c6d7cf;
+}
+table.data tfoot th, table.data tfoot td {
+	border: 1px solid #e0e0e0;
+	text-align: right;
+	font-size: 1em;
+	background: #e8e8cf;
+}
+table.data tbody td a {
+	background: transparent;
+	color: #00c;
+	text-decoration: underline;
+}
+table.data tbody td a:hover {
+	background: transparent;
+	color: #00c;
+	text-decoration: underline;
+}
+table.data tbody th a {
+	background: transparent;
+	color: #3f7c5f;
+	text-decoration: underline;
+	font-weight: bold;
+}
+table.data tbody th a:visited {
+	color: #b98b00;
+}
+table.data tbody th, table.data tbody td {
+	vertical-align: top;
+	text-align: left;
+}
+table.data tfoot td {
+	border: 1px solid #996;
+}
+table.data tbody tr:hover {
+	background: #ffffd9;
+}
+/* end tables */
+
+dl.table-display { 
+	margin: 2em 0;
+	padding: 0;
+	font-size: x-small;
+}
+
+dl.table-display dt {
+	width:20%;
+	float: left;
+	margin: 0 6px 0 0;
+	padding: .1em;
+	border-top: 1px solid #999;
+	font-weight: bold;
+}
+
+dl.table-display dd {
+	float: left;
+	margin: 0 0 0 0;
+	padding: .1em;
+	border-top: 1px solid #999;
+	width:75%;
+}
+
+table.reportform {
+	background-color: rgb(205,219,205);
+	width:100%;
+	padding:5px;
+}
+table.reportform td{
+	margin:10px;
+	padding:20px;
+	text-align:left;
+}
+/* ***************************************
+		form 
+  ***************************************	*/
+ form.data {  /* set width in form, not fieldset (still takes up more room w/ fieldset width */
+  font:100% verdana,arial,sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 500px;
+  max-width: 700px;
+  width: 660px; 
+}
+
+form.data fieldset {
+	border: 1px solid #000;
+  	padding: 10px;        /* padding in fieldset support spotty in IE */
+  	margin: 0;
+}
+
+form.data label { 
+	display: block;  /* block float the labels to left column, set a width */
+	float: left; 
+	width: 150px; 
+	padding: 0; 
+	margin: 5px 0 0; /* set top margin same as form input - textarea etc. elements */
+	text-align: right; 
+}
+
+form.data fieldset legend {
+	font-size:1.1em; /* bump up legend font size, not too large or it'll overwrite border on left */
+                       /* be careful with padding, it'll shift the nice offset on top of border  */
+}
+
+form.data input, form.data textarea, form.data select, form.data span{
+	width: 400px;
+	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
+	/*width:auto;*/      /* set width of form elements to auto-size, otherwise watch for wrap on resize */
+	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
+                              label aligns textarea better in IE */
+}
+
+ form.data span{
+ 	display:block;
+ 	vertical-align: bottom;
+ }
+ 
+form.data input.small{
+	width:100px;
+}
+
+form.data input.radio{
+	width:20px;
+}
+
+form.data textarea {
+	height: 200px;
+}
+
+form.data input.button{
+	width:60px;
+}
+
+form.data input#reset {
+	margin-left:0px; /* set margin-left back to zero on reset button (set above) */
+}
+
+textarea { overflow: auto; }
+
+form.data small {
+	display: block;
+	margin: 0 0 5px 160px; /* instructions/comments left margin set to align w/ right column inputs */
+	padding: 1px 3px;
+	font-size: 88%;
+}
+
+form.data .required{font-weight:bold;} /* uses class instead of div, more efficient */
+
+form.data br {
+	clear:left; /* setting clear on inputs didn't work consistently, so brs added for degrade */
+}
+/* End form */
+
+/* Miscellaneous */  
+div#AjaxDisabledZone{
+	position:absolute;
+	z-index:1000;
+	left: 0px;
+	top: 0px;
+	width:100%;
+	height:100%;
+}
+
+div#AjaxMessageZone{
+	position:absolute;
+	right: 0px;
+	top: 0px;
+	background-color:red;
+	color:white;
+	padding:4px;
+}
+
+
