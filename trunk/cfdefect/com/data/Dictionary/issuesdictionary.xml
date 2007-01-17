@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<issues>
+		<ID>
+			<label>ID</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The ID field is required but was not provided.</notProvided>
+			<invalidType>The ID field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The ID field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</ID>
+		<NAME>
+			<label>NAME</label>
+			<comment/>
+			<maxlength>255</maxlength>
+			<notProvided>The NAME field is required but was not provided.</notProvided>
+			<invalidType>The NAME field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The NAME field is too long.  This field must be no more than 255 bytes long.</invalidLength>
+		</NAME>
+		<PROJECTIDFK>
+			<label>PROJECTIDFK</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The PROJECTIDFK field is required but was not provided.</notProvided>
+			<invalidType>The PROJECTIDFK field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The PROJECTIDFK field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</PROJECTIDFK>
+		<CREATED>
+			<label>CREATED</label>
+			<comment/>
+			<maxlength>26</maxlength>
+			<notProvided>The CREATED field is required but was not provided.</notProvided>
+			<invalidType>The CREATED field does not contain valid data.  This field must be a date value.</invalidType>
+			<invalidLength>The CREATED field is too long.  This field must be no more than 26 bytes long.</invalidLength>
+		</CREATED>
+		<UPDATED>
+			<label>UPDATED</label>
+			<comment/>
+			<maxlength>26</maxlength>
+			<notProvided>The UPDATED field is required but was not provided.</notProvided>
+			<invalidType>The UPDATED field does not contain valid data.  This field must be a date value.</invalidType>
+			<invalidLength>The UPDATED field is too long.  This field must be no more than 26 bytes long.</invalidLength>
+		</UPDATED>
+		<USERIDFK>
+			<label>USERIDFK</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The USERIDFK field is required but was not provided.</notProvided>
+			<invalidType>The USERIDFK field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The USERIDFK field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</USERIDFK>
+		<DESCRIPTION>
+			<label>DESCRIPTION</label>
+			<comment/>
+			<maxlength>2000</maxlength>
+			<notProvided>The DESCRIPTION field is required but was not provided.</notProvided>
+			<invalidType>The DESCRIPTION field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The DESCRIPTION field is too long.  This field must be no more than 2000 bytes long.</invalidLength>
+		</DESCRIPTION>
+		<HISTORY>
+			<label>HISTORY</label>
+			<comment/>
+			<maxlength>1000</maxlength>
+			<notProvided>The HISTORY field is required but was not provided.</notProvided>
+			<invalidType>The HISTORY field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The HISTORY field is too long.  This field must be no more than 1000 bytes long.</invalidLength>
+		</HISTORY>
+		<ISBUG>
+			<label>ISBUG</label>
+			<comment/>
+			<maxlength>22</maxlength>
+			<notProvided>The ISBUG field is required but was not provided.</notProvided>
+			<invalidType>The ISBUG field does not contain valid data.  This field must be a numeric value.</invalidType>
+			<invalidLength>The ISBUG field is too long.  This field must be no more than 22 bytes long.</invalidLength>
+		</ISBUG>
+		<LOCUSIDFK>
+			<label>LOCUSIDFK</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The LOCUSIDFK field is required but was not provided.</notProvided>
+			<invalidType>The LOCUSIDFK field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The LOCUSIDFK field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</LOCUSIDFK>
+		<SEVERITYIDFK>
+			<label>SEVERITYIDFK</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The SEVERITYIDFK field is required but was not provided.</notProvided>
+			<invalidType>The SEVERITYIDFK field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The SEVERITYIDFK field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</SEVERITYIDFK>
+		<STATUSIDFK>
+			<label>STATUSIDFK</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The STATUSIDFK field is required but was not provided.</notProvided>
+			<invalidType>The STATUSIDFK field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The STATUSIDFK field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</STATUSIDFK>
+		<RELATEDURL>
+			<label>RELATEDURL</label>
+			<comment/>
+			<maxlength>500</maxlength>
+			<invalidType>The RELATEDURL field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The RELATEDURL field is too long.  This field must be no more than 500 bytes long.</invalidLength>
+		</RELATEDURL>
+		<CREATORIDFK>
+			<label>CREATORIDFK</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<invalidType>The CREATORIDFK field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The CREATORIDFK field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</CREATORIDFK>
+		<ATTACHMENT>
+			<label>ATTACHMENT</label>
+			<comment/>
+			<maxlength>500</maxlength>
+			<invalidType>The ATTACHMENT field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The ATTACHMENT field is too long.  This field must be no more than 500 bytes long.</invalidLength>
+		</ATTACHMENT>
+		<PUBLICID>
+			<label>PUBLICID</label>
+			<comment/>
+			<maxlength>22</maxlength>
+			<invalidType>The PUBLICID field does not contain valid data.  This field must be a numeric value.</invalidType>
+			<invalidLength>The PUBLICID field is too long.  This field must be no more than 22 bytes long.</invalidLength>
+			<notProvided>The PUBLICID field is required but was not provided.</notProvided>
+		</PUBLICID>
+		<DUEDATE>
+			<label>DUEDATE</label>
+			<comment/>
+			<maxlength>26</maxlength>
+			<invalidType>The DUEDATE field does not contain valid data.  This field must be a date value.</invalidType>
+			<invalidLength>The DUEDATE field is too long.  This field must be no more than 26 bytes long.</invalidLength>
+		</DUEDATE>
+	</issues>
