@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<!-- 
+	** Application Configuration ** 
+	This is the configuration section for this application. 
+	Please feel free to modify values but do not delete this section.
+	 -->
+	<bean id="ApplicationConfig" class="cfdefect.com.cfdefect.core.ApplicationConfiguration">
+		<property name="configs">
+			<map>
+				<!-- Brand/name of your application. The will be used as webpage/email title. -->
+				<entry key="AppTitle"><value>ColdFusion Defect Tracker</value></entry>
+				<!-- path where attachments will be placed. -->
+				<entry key="attachmentPath"><value>/cfdefect/attachments</value></entry>
+				<!-- Path where report XSLT are kept. For the most part you do not have to change this since XSLT are included with core distribustion. -->
+				<entry key="xsltPath"><value>/cfdefect/com/cfdefect/report/xslt</value></entry>
+				<!-- mail server (required) as ColdFusion default will not be used. -->
+				<entry key="mailServer"><value>mailfwd.nih.gov</value></entry>
+				<entry key="mailPort"><value>25</value></entry>
+				<!-- From address this will be used in emails generated from the system -->
+				<entry key="mailDefaultFrom"><value>rasheed@niehs.nih.gov</value></entry>
+				<!-- CSS file for html emails. For the most part you do not have to change this since print CSS are included with core distribustion. -->
+				<entry key="mailCSS"><value>/cfdefect/com/cfdefect/email/email.css</value></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- Reactor Configuration -->
+	<!-- This is your Reactor configuration. For details on these parameter please refer to reactor documentation. -->
+	<bean id="reactorConfiguration" class="cfdefect.com.cfdefect.core.ReactorConfiguration" init-method="configure">
+		<constructor-arg name="pathToConfigXml"><value>/cfdefect/config/reactor.xml</value></constructor-arg>
+		<!-- The directory under /reactor/project in which to put generated base code. Do not modify -->
+		<property name="project"><value>cfdefect</value></property>
+		<!-- The datasource name to use. -->
+		<property name="dsn"><value>cfdefect_mysql</value></property>
+		<!--  user name for the datasource -->
+		<property name="username"><value>root</value></property>
+		<!--  password name for the datasource -->
+		<property name="password"><value>cd0694</value></property>
+		<!-- type of database i.e. oracle, mssql, mysql4 etc. -->
+		<property name="type"><value>mysql4</value></property>
+		<!-- The directory in which to put generated code -  do not modify this. -->
+		<property name="mapping"><value>/cfdefect/com/data</value></property>
+		<!-- Should reactor detect changes (development), run fast but not detect changes (production), or always re-generate code (always)? -->
+		<property name="mode"><value>production</value></property>
+	</bean>
+	
+	<!-- *******************************************************************************
+		Please do not modify section below this unless you are pretty sure.
+	************************************************************************************ -->
+	<!-- Fusebox controllers similar to Model-Glue event handlers or Mach-II listeners -->	
+	<bean id="Controller" class="cfdefect.com.fusebox.controller.Controller">
+		<property name="UDF"><ref bean="UDF" /></property>
+	</bean>
+	
+	<bean id="AjaxController" class="cfdefect.com.fusebox.controller.AjaxController">
+		<property name="UDF"><ref bean="UDF" /></property>
+	</bean>
+	
+	<bean id="AdminController" class="cfdefect.com.fusebox.controller.AdminController">
+		<property name="UDF"><ref bean="UDF" /></property>
+	</bean>
+	
+	 <!-- path to core components coldspring file. do not change this -->
+	<import resource="/cfdefect/config/coldspring.xml" />
+			
+</beans>

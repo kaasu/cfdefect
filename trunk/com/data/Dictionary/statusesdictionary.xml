@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<statuses>
+		<ID>
+			<label>ID</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The ID field is required but was not provided.</notProvided>
+			<invalidType>The ID field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The ID field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</ID>
+		<NAME>
+			<label>NAME</label>
+			<comment/>
+			<maxlength>50</maxlength>
+			<notProvided>The NAME field is required but was not provided.</notProvided>
+			<invalidType>The NAME field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The NAME field is too long.  This field must be no more than 50 bytes long.</invalidLength>
+		</NAME>
+		<RANK>
+			<label>RANK</label>
+			<comment/>
+			<maxlength>22</maxlength>
+			<invalidType>The RANK field does not contain valid data.  This field must be a numeric value.</invalidType>
+			<invalidLength>The RANK field is too long.  This field must be no more than 22 bytes long.</invalidLength>
+		</RANK>
+	</statuses>
