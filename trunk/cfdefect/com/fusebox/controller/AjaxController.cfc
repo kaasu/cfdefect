@@ -1,4 +1,4 @@
-<cfcomponent output="false" displayname="Controller" hint="" extends="cfdefect.com.cfdefect.core.AbstractController">
+<cfcomponent output="false" displayname="AjaxController" hint="" extends="AbstractController">
 
 <cffunction name="init" returntype="AjaxController" output="false" access="public" hint="Constructor">
 	<cfreturn this />

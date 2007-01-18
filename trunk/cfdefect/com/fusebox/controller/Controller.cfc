@@ -1,33 +1,27 @@
-<cfcomponent output="false" displayname="Controller" hint="" extends="cfdefect.com.cfdefect.core.AbstractController">
+<cfcomponent output="false" displayname="Controller" hint="" extends="AbstractController">
 
 <cffunction name="init" returntype="Controller" output="false" access="public" hint="Constructor">
 	<cfreturn this />
 </cffunction>
 
 <!--- PUBLIC METHODS --->
-<cffunction name="logout" returntype="void" access="public" output="false" hint="">
-	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
-	<cfset getBean( 'SecurityService' ).logout() />
-</cffunction>
-
-<cffunction name="getAnnouncementForUser" returntype="void" access="public" output="false" hint="">
+<cffunction name="getAnnouncementForUser" returntype="void" access="public" output="false" hint="I add a query in to event object which has all the announcement for the currently logged in user to be displayed on home page.">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
 	<cfset arguments.event.setValue( 'qAnnouncements', getBean( 'AnnouncementService' ).getAnnouncementForUser( arguments.event.getValue( 'user' ).getID() ) )  />
 </cffunction>
 
 <cffunction name="getUserProjectStats" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
+	<!--- <cfdump var="#getBean( 'UserService' ).getUserProjectStats( arguments.event.getValue( 'user' ).getID() )#"><cfabort> --->
 	<cfset arguments.event.setValue( 'userProjectStats', getBean( 'UserService' ).getUserProjectStats( arguments.event.getValue( 'user' ).getID() ) )  />
 </cffunction>
-
 
 <cffunction name="OnRequestStart" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
 	<cfscript>
 	arguments.event.setValue( 'skin', 'html' );
-	arguments.event.setValue( 'UDF', getUDF() );
-	arguments.event.setValue( 'user', getBean( 'SecurityService' ).getUser() );
-	arguments.event.setValue( 'isLoggedIn', getBean( 'SecurityService' ).isLoggedIn() );
+	//  injecting udf library in event scope so that views can use it.
+	arguments.event.setValue( 'UDF', getBean( 'UDF' ) );;
 	arguments.event.setValue( 'ApplicationConfig', getBean( 'ApplicationConfig' ) );
 	arguments.event.setValue( 'ApplicationTitle', arguments.event.getValue( 'ApplicationConfig' ).getConfig( 'AppTitle' ) );
 	</cfscript>
@@ -35,12 +29,15 @@
 
 <cffunction name="getUserRecord" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
-	<cfset arguments.event.setValue( 'recordObject', getBean( 'UserService' ).getRecord( arguments.event.getValue( 'user' ).getID() ) ) />
+	<cfif NOT arguments.event.valueExists( 'recordObject' )>
+		<cfset arguments.event.setValue( 'recordObject', getBean( 'UserService' ).getRecord( arguments.event.getValue( 'user' ).getID() ) ) />	
+	</cfif>
 </cffunction>
 
 <cffunction name="savePreferences" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
-	<cfset arguments.event.setValue( 'recordObject', getBean( 'UserService' ).validateAndProcess( getUDF().getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
+	<cfset var udf = arguments.event.getValue( 'UDF' ) />
+	<cfset arguments.event.setValue( 'recordObject', getBean( 'UserService' ).validateAndProcess( udf.getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
 </cffunction>
 
 <cffunction name="getIssueForProject" returntype="void" access="public" output="false" hint="">
@@ -52,7 +49,6 @@
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
 	<cfset arguments.event.setValue( 'columns', getBean( 'IssueService' ).getColumns() ) />
 </cffunction>
-
 
 <cffunction name="getIssueSupportingData" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
@@ -70,7 +66,8 @@
 
 <cffunction name="validateAndProcessIssue" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
-	<cfset arguments.event.setValue( 'recordObject', getBean( 'IssueService' ).validateAndProcess( getUDF().getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
+	<cfset var udf = arguments.event.getValue( 'UDF' ) />
+	<cfset arguments.event.setValue( 'recordObject', getBean( 'IssueService' ).validateAndProcess( udf.getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
 </cffunction>
 
 
@@ -129,7 +126,4 @@
 
 
 <!--- PRIVATE METHODS --->
-
-
-
 </cfcomponent>
