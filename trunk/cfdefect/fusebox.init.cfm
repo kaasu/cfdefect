@@ -1,15 +1,17 @@
 <cfsilent>
 <cfscript>
-self = "index.cfm";
-myself = self & '?' & myFusebox.getApplication().fuseactionVariable & '=';
 Controller = myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ).getBean( 'Controller' );
 Controller.OnRequestStart( event );
-event.setValue( 'myself', myself );
+SecurityController = myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ).getBean( 'SecurityController' );
+SecurityController.OnRequestStart( event );
+myself = myFusebox.getMyself();
+event.setValue( 'myself', myFusebox.getMyself() );
+//event.setValue( 'myFusebox', myFusebox );
+
 //some global xfa
 xfa.home = 'c.home';
 xfa.logout = 'c.logout';
 xfa.ajax_issues = 'c.ajax_issues';
-//reactorFactory =  myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ).getBean( 'ReactorFactory' );
 </cfscript>
 </cfsilent>
 
