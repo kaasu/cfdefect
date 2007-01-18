@@ -33,34 +33,34 @@ INSERT INTO `cd_groups` VALUES ('99C5AACE-92B3-7D72-6E5B4017FD38ACED','admin');
 
 DROP TABLE IF EXISTS `cd_announcements`;
 CREATE TABLE `cd_announcements` (
-  `id` varchar(35) NOT NULL default '',
-  `title` varchar(50) NOT NULL default '',
+  `id` varchar(35) NOT NULL,
+  `title` varchar(50) NOT NULL,
   `body` text NOT NULL,
-  `projectidfk` varchar(35) NOT NULL default '',
-  `useridfk` varchar(35) NOT NULL default '',
-  `posted` datetime NOT NULL default '0000-00-00 00:00:00',
+  `projectidfk` varchar(35) NOT NULL,
+  `useridfk` varchar(35) NOT NULL,
+  `posted` datetime NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `cd_issues`;
 
 CREATE TABLE `cd_issues` (
-  `Id` varchar(35) NOT NULL default '',
-  `name` varchar(255) NOT NULL default '',
-  `projectidfk` varchar(35) NOT NULL default '',
-  `created` datetime NOT NULL default '0000-00-00 00:00:00',
-  `updated` datetime NOT NULL default '0000-00-00 00:00:00',
-  `useridfk` varchar(35) NOT NULL default '',
-  `creatoridfk` varchar(35) NULL default '',
+  `Id` varchar(35) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `projectidfk` varchar(35) NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
+  `useridfk` varchar(35) NOT NULL,
+  `creatoridfk` varchar(35) NULL,
   `description` text NOT NULL,
   `history` text NOT NULL,
   `isbug` tinyint(1) NOT NULL default '0',
-  `locusidfk` varchar(35) NOT NULL default '',
-  `severityidfk` varchar(35) NOT NULL default '',
-  `statusidfk` varchar(35) NOT NULL default '',
-  `relatedURL` varchar(255) NOT NULL default '',
-  `attachment` varchar(255) NOT NULL default '',
-  `publicid` int(11) default NULL,
+  `locusidfk` varchar(35) NOT NULL,
+  `severityidfk` varchar(35) NOT NULL,
+  `statusidfk` varchar(35) NOT NULL,
+  `relatedURL` varchar(255),
+  `attachment` varchar(255),
+  `publicid` int(11) NOT NULL,
   `duedate` date default NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -77,8 +77,8 @@ CREATE TABLE `cd_issues` (
 DROP TABLE IF EXISTS `cd_projectloci`;
 
 CREATE TABLE `cd_projectloci` (
-  `Id` varchar(35) NOT NULL default '',
-  `name` varchar(50) NOT NULL default '',
+  `Id` varchar(35) NOT NULL,
+  `name` varchar(50) NOT NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -100,8 +100,8 @@ INSERT INTO `cd_projectloci`(id, name) VALUES ('D24608FA-D932-FD61-D6A16A505941A
 DROP TABLE IF EXISTS `cd_projects`;
 
 CREATE TABLE `cd_projects` (
-  `Id` varchar(35) NOT NULL default '',
-  `name` varchar(50) NOT NULL default '',
+  `Id` varchar(35) NOT NULL,
+  `name` varchar(50) NOT NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -117,8 +117,8 @@ CREATE TABLE `cd_projects` (
 DROP TABLE IF EXISTS `cd_projects_projectloci`;
 
 CREATE TABLE `cd_projects_projectloci` (
-  `projectidfk` varchar(35) NOT NULL default '',
-  `projectlociidfk` varchar(35) NOT NULL default ''
+  `projectidfk` varchar(35) NOT NULL,
+  `projectlociidfk` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
@@ -133,8 +133,8 @@ CREATE TABLE `cd_projects_projectloci` (
 DROP TABLE IF EXISTS `cd_projects_users`;
 
 CREATE TABLE `cd_projects_users` (
-  `projectidfk` varchar(35) NOT NULL default '',
-  `useridfk` varchar(35) NOT NULL default ''
+  `projectidfk` varchar(35) NOT NULL,
+  `useridfk` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
@@ -149,8 +149,8 @@ CREATE TABLE `cd_projects_users` (
 DROP TABLE IF EXISTS `cd_projects_users_email`;
 
 CREATE TABLE `cd_projects_users_email` (
-  `projectidfk` varchar(35) NOT NULL default '',
-  `useridfk` varchar(35) NOT NULL default ''
+  `projectidfk` varchar(35) NOT NULL,
+  `useridfk` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
@@ -165,9 +165,9 @@ CREATE TABLE `cd_projects_users_email` (
 DROP TABLE IF EXISTS `cd_severities`;
 
 CREATE TABLE `cd_severities` (
-  `Id` varchar(35) NOT NULL default '',
-  `name` varchar(50) NOT NULL default '',
-  `rank` tinyint(4) default NULL,
+  `Id` varchar(35) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `rank` tinyint(4) NOT NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -186,9 +186,9 @@ INSERT INTO `cd_severities`(id, name, rank) VALUES ('B39AF9E4-A525-B9AE-20F2B672
 DROP TABLE IF EXISTS `cd_statuses`;
 
 CREATE TABLE `cd_statuses` (
-  `Id` varchar(35) NOT NULL default '',
-  `name` varchar(50) NOT NULL default '',
-  `rank` tinyint(4) default NULL,
+  `Id` varchar(35) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `rank` tinyint(4) NOT NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -207,11 +207,11 @@ INSERT INTO `cd_statuses`(id, name, rank) VALUES ('B39D0043-B9C9-B5CB-85A208D315
 DROP TABLE IF EXISTS `cd_users`;
 
 CREATE TABLE `cd_users` (
-  `Id` varchar(35) NOT NULL default '',
-  `name` varchar(50) NOT NULL default '',
-  `username` varchar(50) default NULL,
-  `password` varchar(50) default NULL,
-  `emailaddress` varchar(50) default NULL,
+  `Id` varchar(35) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `emailaddress` varchar(50) NOT NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -228,8 +228,8 @@ INSERT INTO `cd_users`(id, name, username, password, emailaddress) VALUES ('94CC
 DROP TABLE IF EXISTS `cd_users_groups`;
 
 CREATE TABLE `cd_users_groups` (
-  `groupidfk` varchar(35) NOT NULL default '',
-  `useridfk` varchar(35) NOT NULL default ''
+  `groupidfk` varchar(35) NOT NULL,
+  `useridfk` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
