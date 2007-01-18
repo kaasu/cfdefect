@@ -14,7 +14,7 @@
 		<cfset UDF = attributes.UDF />
 		</cfsilent>
 		<cfoutput>
-		<form id="#type#ListForm" name="#type#ListForm" method="post" action="#myself##xfa.delete#&type=#type#">
+		<form id="#type#ListForm" name="#type#ListForm" method="post" action="#myself##xfa.delete#">
 			<table border="1" width="100%" id="#type#Table" class="data">
 				<caption>#UDF.capFirstTitle( type )#(s) <br />
 				<p>Use the form below to select #type# to edit. You may also create or delete #type#.</p>
@@ -37,7 +37,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="#1 + ArrayLen( headers )#">[<a href="#myself##xfa.add#&type=#type#&id=0">Add #UDF.capFirstTitle( type )#</a>] | [<a href="##" class="delete" targetform="#type#ListForm">Delete Selected</a>]</td>
+						<td colspan="#1 + ArrayLen( headers )#">[<a href="#myself##xfa.add#">Add #UDF.capFirstTitle( type )#</a>] | [<a href="##" class="delete" targetform="#type#ListForm">Delete Selected</a>]</td>
 					</tr>
 				</tfoot>
 			</table>		

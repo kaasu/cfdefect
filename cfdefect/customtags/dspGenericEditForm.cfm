@@ -4,14 +4,12 @@
 	<cfparam name="attributes.myself" type="string" />
 	<cfparam name="attributes.xfa" type="struct" />	
 	<cfparam name="attributes.type" type="string" />
-	<cfparam name="attributes.id" type="string" />
 	<cfparam name="attributes.UDF" />
 	<cfparam name="attributes.help" type="string" />
 	<cfparam name="attributes.formEnctype" type="string" default="" />
 	<cfset myself = attributes.myself />
 	<cfset xfa = attributes.xfa />
 	<cfset type = attributes.type />
-	<cfset id = attributes.id />
 	<cfset UDF = attributes.UDF />
 	<cfset help = attributes.help />
 	<cfset formEnctype = attributes.formEnctype />
@@ -29,10 +27,8 @@
 						<cfset thisTag.GeneratedContent = '' />
 						<label for="kludge"></label>
 						<input type="submit" value="Save" id="submit" class="button"> 
-						<input type="button" value="Cancel" id="cancel" class="button cancel" location="#myself##xfa.cancel#<cfif type.trim().length()>&type=#type#</cfif>"> 
+						<input type="button" value="Cancel" id="cancel" class="button cancel" location="#myself##xfa.cancel#"> 
 				</fieldset>
-				<input type="hidden" name="id" value="#id#" />
-				<input type="hidden" name="type" value="#type#">
 				<br />
 			</form>
 			</div>
