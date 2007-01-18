@@ -1,4 +1,4 @@
-<cfcomponent output="false" displayname="SecurityController" hint="">
+<cfcomponent output="false" displayname="SecurityController" hint="" extends="AbstractController">
 
 <cffunction name="init" returntype="SecurityController" output="false" access="public" hint="Constructor">
 	<cfreturn this />
@@ -7,18 +7,25 @@
 <!--- PUBLIC METHODS --->
 <cffunction name="OnRequestStart" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
-	<cfset arguments.event.setValue( getSecurityService().getUser() ) />
+	<cfset arguments.event.setValue( 'user', getBean( 'SecurityService' ).getUser() ) />
+	<cfset arguments.event.setValue( 'isLoggedIn', getBean( 'SecurityService' ).isLoggedIn() ) />
+</cffunction>
+
+<cffunction name="logout" returntype="void" access="public" output="false" hint="">
+	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
+	<cfset getBean( 'SecurityService' ).logout() />
+</cffunction>
+
+<cffunction name="validateUser" returntype="void" access="public" output="false" hint="">
+	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
+	<cfset arguments.event.setValue( 'isValid', getBean( 'SecurityService' ).validateUser( event.getValue( 'username' ), event.getValue( 'password' ) ) ) />
+	<cfif NOT arguments.event.getValue( 'isValid' )>
+		<cfset arguments.event.setValue( 'message', 'Login Failed. Please try again.' )>
+	</cfif>
 </cffunction>
 
 <!--- PRIVATE METHODS --->
 
 <!--- GETTER & SETTER --->
-<cffunction name="getSecurityService" access="public" returntype="cfdefect.com.cfdefect.SecurityService" output="false" hint="Getter for SecurityService">
-	<cfreturn variables.instance.SecurityService />
-</cffunction>
 
-<cffunction name="setSecurityService" access="public" returntype="void" output="false" hint="Setter for SecurityService">
-	<cfargument name="SecurityService" type="cfdefect.com.cfdefect.SecurityService" required="true" />
-	<cfset variables.instance.SecurityService = arguments.SecurityService>
-</cffunction>
 </cfcomponent>
