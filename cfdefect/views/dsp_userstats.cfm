@@ -31,6 +31,7 @@
 			<cfif userProjectStats.oldest.recordcount>
 				<ui:dspUserStatsIssue data="#userProjectStats.oldest#" title="Oldest" link="#event.getValue( 'myself' )##xfa.issue#" />
 			</cfif>
+
 			<cfif userProjectStats.overdue.recordcount>
 				<ui:dspUserStatsIssue data="#userProjectStats.overdue#" title="Overdue" link="#event.getValue( 'myself' )##xfa.issue#" />
 			</cfif>

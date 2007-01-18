@@ -7,8 +7,7 @@
 </cfif>
 <ui:dspGenericEditForm 	myself= "#myself#"
 						xfa="#xfa#" 
-						type="Issue"
-						id="#record.getID()#"	
+						type="Issue"	
 						UDF="#event.getValue( 'UDF' )#"
 						formEnctype="multipart/form-data"
 						help="Use this form to add/edit an issue.">
@@ -46,7 +45,7 @@
 	</select><br />
 	
 	<label for="duedate">Due Date: </label>
-	<input type="text" id="duedate" name="duedate" value="#record.getDueDate()#"><br />												
+	<input type="text" id="duedate" name="duedate" value="#DateFormat( record.getDueDate(), 'mm/dd/yyyy' )#"><br />												
 	
 	<label for="relatedURL">Related URL: </label>
 	<input type="text" id="relatedURL" name="relatedURL" value="#record.getRelatedURL()#"><br />

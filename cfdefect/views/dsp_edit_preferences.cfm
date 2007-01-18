@@ -11,8 +11,7 @@ Your preferences have been updated.
 </cfif>
 <ui:dspGenericEditForm 	myself= "#myself#"
 						xfa="#xfa#" 
-						type="#event.getValue( 'type' )#"
-						id="#record.getID()#"	
+						type="Preferences"
 						UDF="#event.getValue( 'UDF' )#"
 						help="Use the form below to update your preferences. Every project selected in the 'Email Projects' field will subscribe you to that project. You will then get an email every time an issue is created or updated.">
 						

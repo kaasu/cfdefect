@@ -19,7 +19,7 @@
 					<cfif columns[i] neq 'view_issues'>
 						<td>
 							<cfif i eq 1>
-								<a href="#myself##xfa.edit#&id=#URLEncodedFormat( id )#&type=#type#">#UDF.format( data[columns[i]][currentrow] )#</a>	
+								<a href="#myself##xfa.edit#&id=#URLEncodedFormat( id )#">#UDF.format( data[columns[i]][currentrow] )#</a>	
 							<cfelse>
 								#UDF.format( data[columns[i]][currentrow] )#
 							</cfif>
