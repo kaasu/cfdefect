@@ -90,7 +90,7 @@
 					, created 
 					, updated	
 					, duedate   
-			FROM	CD_ISSUES i
+			FROM	cd_issues i
 						INNER JOIN  CD_PROJECTLOCI pl ON pl.id = i.locusidfk
 							  INNER JOIN CD_SEVERITIES sev ON sev.id = i.severityidfk
 							  		INNER JOIN CD_USERS owner ON owner.id = i.useridfk
@@ -104,7 +104,7 @@
 						<cfif StructKeyExists( arguments, 'useridfk' ) AND arguments.useridfk neq "">
 							AND	i.useridfk = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.useridfk#" maxlength="35">
 						</cfif>
-			ORDER BY  	i.projectidfk, i.publicid, #arguments.sort# #arguments.sortdir# 
+			<!--- ORDER BY  	i.projectidfk, i.publicid, #arguments.sort# #arguments.sortdir#  --->
 			
 			<!--- SELECT 		i.id
 						, i.projectidfk
