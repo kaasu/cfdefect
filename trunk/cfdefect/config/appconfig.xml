@@ -9,7 +9,7 @@
 		<property name="configs">
 			<map>
 				<!-- Brand/name of your application. The will be used as webpage/email title. -->
-				<entry key="AppTitle"><value>ColdFusion Defect Tracker</value></entry>
+				<entry key="AppTitle"><value>CFDefect - ColdFusion Defect Tracker</value></entry>
 				<!-- path where attachments will be placed. -->
 				<entry key="attachmentPath"><value>/cfdefect/attachments</value></entry>
 				<!-- Path where report XSLT are kept. For the most part you do not have to change this since XSLT are included with core distribustion. -->
@@ -49,17 +49,13 @@
 		Please do not modify section below this unless you are pretty sure.
 	************************************************************************************ -->
 	<!-- Fusebox controllers similar to Model-Glue event handlers or Mach-II listeners -->	
-	<bean id="Controller" class="cfdefect.com.fusebox.controller.Controller">
-		<property name="UDF"><ref bean="UDF" /></property>
-	</bean>
+	<bean id="Controller" class="cfdefect.com.fusebox.controller.Controller" />
 	
-	<bean id="AjaxController" class="cfdefect.com.fusebox.controller.AjaxController">
-		<property name="UDF"><ref bean="UDF" /></property>
-	</bean>
+	<bean id="AjaxController" class="cfdefect.com.fusebox.controller.AjaxController" />
 	
-	<bean id="AdminController" class="cfdefect.com.fusebox.controller.AdminController">
-		<property name="UDF"><ref bean="UDF" /></property>
-	</bean>
+	<bean id="AdminController" class="cfdefect.com.fusebox.controller.AdminController" />
+	
+	<bean id="SecurityController" class="cfdefect.com.fusebox.controller.SecurityController" />
 	
 	 <!-- path to core components coldspring file. do not change this -->
 	<import resource="/cfdefect/config/coldspring.xml" />
