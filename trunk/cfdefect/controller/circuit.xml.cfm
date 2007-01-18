@@ -1,50 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE fusebox:circuit PUBLIC "circuit.dtd" "circuit.dtd"> 
-<!--
-	Example circuit.xml file for the controller portion of an application.
-	Only the controller circuit has public access - the controller circuit
-	contains all of the fuseactions that are used in links and form posts
-	within your application.
--->
 <circuit access="public" xmlns:cf="/cfdefect/com/fusebox/lexicon/cf" xmlns:cs="/cfdefect/com/fusebox/lexicon/coldspring">
-
-	<fuseaction name="pre" access="private">
-		
-	</fuseaction>
-	
-	<fuseaction name="layout" access="internal">
-		<if condition="event.getValue( 'skin') eq 'html' AND event.getValue( 'isLoggedIn' )">
-			<true>
-				<xfa name="list" value="admin.list" />
-				<xfa name="preferences" value="c.preferences" />
-				<xfa name="reports" value="c.reports" />
-				<xfa name="rss" value="c.rss" />
-				<xfa name="issues" value="c.issues" />
-				<xfa name="addissue" value="editissue" />
-				<invoke object="Controller" methodcall="getProjectForUser( event )" />
-				<include template="dsp_sidebar.cfm" circuit="v" contentvariable="content.sidebar" />
-			</true>
-		</if>
-		<include template="lay_#event.getValue( 'skin')#.cfm" circuit="v" required="true" />
-	</fuseaction>
 	
 	<fuseaction name="home">
 		<do action="userannoucements" contentvariable="content.userAnnouncements" />
 		<do action="userprojectstats" contentvariable="content.userStats" />
 		<include template="dsp_home.cfm" circuit="v" required="true" contentvariable="content.pageContent" />	
 		<do action="layout" />
-	</fuseaction>
-	
-	<fuseaction name="userprojectstats" access="private">
-		<xfa name="issues" value="issues"/>
-		<xfa name="issue" value="editIssue"/>
-		<invoke object="Controller" methodcall="getUserProjectStats( event )" />
-		<include template="dsp_userstats.cfm" circuit="v" required="true" />
-	</fuseaction>
-	
-	<fuseaction name="userannoucements" access="private">
-		<invoke object="Controller" methodcall="getAnnouncementForUser( event )" />
-		<include template="dsp_userannouncements.cfm" circuit="v" required="true" />
 	</fuseaction>
 	
 	<fuseaction name="login">
@@ -54,44 +16,34 @@
 	</fuseaction>
 	
 	<fuseaction name="doLogin">
-		<invoke object="SecurityService" method="validateUser" returnvariable="isValid">
-			<argument value="#event.getValue( 'username' )#"/>
-			<argument value="#event.getValue( 'password' )#"/>
-		</invoke>
-		<if condition="isValid">
+		<invoke object="SecurityController" methodcall="validateUser( event )" />
+		<if condition="event.getValue( 'isValid', 'false' )">
 			<true>
 				<relocate url="#myself##xfa.home#" addtoken="false" type="client" />
 			</true>
 			<false>
-				<set value="#event.setValue( 'message', 'Login Failed.' )#" />
 				<do action="login" />
 			</false>
 		</if>
 	</fuseaction>
 	
 	<fuseaction name="logout">
-		<invoke object="Controller" methodcall="logout( event )" />
+		<invoke object="SecurityController" methodcall="logout( event )" />
 		<relocate url="#myself##xfa.home#" addtoken="false" type="client" />
 	</fuseaction>
 	
 	<fuseaction name="preferences">
-		<xfa name="process" value="c.savePreferences" />
+		<invoke object="Controller" methodcall="getUserRecord( event )" />
+		<xfa name="process" value="c.savePreferences">
+			<parameter name="id" value="#event.getValue( 'recordObject' ).getID()#" />
+		</xfa>
 		<xfa name="cancel" value="c.home" />
-		<if condition="NOT event.valueExists( 'recordObject' )">
-			<true>
-				<invoke object="Controller" method="getUserRecord">
-					<argument value="#event#"/>
-				</invoke>
-			</true>
-		</if>
 		<include template="dsp_edit_preferences.cfm" circuit="v" required="true" contentvariable="content.pageContent" />
 		<do action="layout" />
 	</fuseaction>
 	
 	<fuseaction name="savePreferences">
-		<invoke object="Controller" method="savePreferences">
-			<argument value="#event#"/>
-		</invoke>
+		<invoke object="Controller" methodcall="savePreferences( event )" />
 		<if condition="NOT event.getValue( 'recordObject' )._getErrorCollection().hasErrors()">
 			<true>
 				<relocate url="#myself#c.preferences&amp;saved=true" addtoken="false" type="client" />
@@ -112,35 +64,28 @@
 		<xfa name="edit" value="editIssue">
 			<parameter name="projectidfk" value="#event.getValue( 'projectidfk' )#" />
 		</xfa>
-		<invoke object="Controller" method="getIssueHeader">
-			<argument value="#event#"/>
-		</invoke>
-		<invoke object="Controller" method="getIssueSupportingData">
-			<argument value="#event#"/>
-		</invoke>
-		<include template="dsp_filter_issue.cfm" circuit="v" required="true" contentvariable="content.pageContent" />
-		<include template="dsp_list_issue.cfm" circuit="v" required="true" contentvariable="content.pageContent" append="true" />
+		<invoke object="Controller" methodcall="getIssueHeader( event )" />
+		<invoke object="Controller" methodcall="getIssueSupportingData( event )" />
+		<include template="dsp_issues.cfm" circuit="v" required="true" contentvariable="content.pageContent" />
 		<do action="layout" />
 	</fuseaction>
 	
 	<fuseaction name="editIssue">
+		<invoke object="Controller" methodcall="getIssueRecord( event )" />
+		<invoke object="Controller" methodcall="getIssueSupportingData( event )" />
 		<xfa name="process" value="saveIssue">
 			<parameter name="projectidfk" value="#event.getValue( 'projectidfk' )#" />
+			<parameter name="id" value="#event.getValue( 'recordObject' ).getID()#" />
 		</xfa> 
 		<xfa name="cancel" value="issues">
 			<parameter name="projectidfk" value="#event.getValue( 'projectidfk' )#" />
 		</xfa> 
-		<invoke object="Controller" methodcall="getIssueRecord( event )" />
-		<invoke object="Controller" methodcall="getIssueSupportingData( event )" />
-		
 		<include template="dsp_edit_issue.cfm" circuit="v" required="true" contentvariable="content.pageContent" />
 		<do action="layout" />
 	</fuseaction>
 	
 	<fuseaction name="saveIssue">
-		<invoke object="Controller" method="validateAndProcessIssue">
-			<argument value="#event#"/>
-		</invoke>
+		<invoke object="Controller" methodcall="validateAndProcessIssue( event )" />
 		<if condition="event.getValue( 'recordObject' ).hasErrors()">
 			<true>
 				<do action="editIssue" />
@@ -193,4 +138,35 @@
 		<invoke object="Controller" methodcall="generateRSS( event )" />
 		<do action="layout" />
 	</fuseaction>
+	
+	<!-- internal fuseactions -->
+	<fuseaction name="layout" access="internal">
+		<if condition="event.getValue( 'skin') eq 'html' AND event.getValue( 'isLoggedIn' )">
+			<true>
+				<xfa name="list" value="admin.list" />
+				<xfa name="preferences" value="c.preferences" />
+				<xfa name="reports" value="c.reports" />
+				<xfa name="rss" value="c.rss" />
+				<xfa name="issues" value="c.issues" />
+				<xfa name="addissue" value="editissue" />
+				<invoke object="Controller" methodcall="getProjectForUser( event )" />
+				<include template="dsp_sidebar.cfm" circuit="v" contentvariable="content.sidebar" />
+			</true>
+		</if>
+		<include template="lay_#event.getValue( 'skin')#.cfm" circuit="v" required="true" />
+	</fuseaction>
+	
+	<!-- private fuseactions -->
+	<fuseaction name="userprojectstats" access="private">
+		<xfa name="issues" value="issues"/>
+		<xfa name="issue" value="editIssue"/>
+		<invoke object="Controller" methodcall="getUserProjectStats( event )" />
+		<include template="dsp_userstats.cfm" circuit="v" required="true" />
+	</fuseaction>
+	
+	<fuseaction name="userannoucements" access="private">
+		<invoke object="Controller" methodcall="getAnnouncementForUser( event )" />
+		<include template="dsp_userannouncements.cfm" circuit="v" required="true" />
+	</fuseaction>
+	
 </circuit>
