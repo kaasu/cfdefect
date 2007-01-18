@@ -40,7 +40,7 @@
 <cffunction name="getOverDueIssues" returntype="query" access="private" output="false" hint="">
 	<cfargument name="issues" type="query" required="true" hint="" />
 	<cfset var temp = '' />
-	<cfquery name="temp" dbtype="query" maxrows="1">
+	<cfquery name="temp" dbtype="query">
 		SELECT	id
 				,publicid
 				,issue_name

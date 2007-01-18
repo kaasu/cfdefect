@@ -87,9 +87,12 @@
 	<cfif NOT record._getErrorCollection().hasErrors()>
 		<cfif getFormFacade().exists( arguments.data['newattachment_field'] ) AND len( getFormFacade().get( arguments.data['newattachment_field'] ) )>
 			<cfif Len( record.getAttachment() )>
+				
 				<cfset getFileService().delete( record.getAttachment() ) />
 			</cfif>
+			
 			<cfset local.attachmentData = getFileService().upload( arguments.data['newattachment_field'] ) />
+				
 			<cfif StructCount( local.attachmentData ) AND StructKeyExists( local.attachmentData, 'fileWasSaved' ) AND local.attachmentData.fileWasSaved>
 				<cfset record.setAttachment( local.attachmentData.serverfile ) />
 			</cfif>
