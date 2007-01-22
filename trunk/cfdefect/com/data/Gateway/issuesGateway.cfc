@@ -16,10 +16,7 @@
 			SELECT 	i.id
 	   				,i.publicid
 	   				,i.name
-	   				, CASE 	WHEN isBug = 1
-	   	 	  					THEN 'Bug'
-			  					ELSE 'Enhancement'
-					END AS type	  
+	   				, it.name AS type	  
 	   				,pl.name AS locus
 	   				,sev.name AS severity
 	   				,s.name AS status
@@ -43,10 +40,11 @@
 						 				<cfif Len( Trim( arguments.user_selected ) ) AND arguments.user_selected neq '-1'>
 											AND 	u.id = <cfqueryparam value="#arguments.user_selected#" cfsqltype="cf_sql_varchar" />
 										</cfif>
+										JOIN cd_issuetypes it ON it.id = i.issuetypeidfk
+										<cfif Len( Trim( arguments.issue_type_selected ) ) AND arguments.issue_type_selected neq '-1'>
+											AND 	it.id = <cfqueryparam value="#arguments.issue_type_selected#" cfsqltype="cf_sql_varchar" />
+										</cfif>
 			WHERE 	i.projectidfk = <cfqueryparam value="#arguments.projectidfk#" cfsqltype="cf_sql_varchar" />
-					<cfif Len( Trim( arguments.issue_type_selected ) ) GT 0 and  arguments.issue_type_selected neq '-1'>
-						AND i.isBug = <cfqueryparam value="#arguments.issue_type_selected#" cfsqltype="cf_sql_integer" />
-					</cfif>
 					<cfif Len( Trim( arguments.keyword ) )>
 						AND ( 	
 								UPPER( i.name ) LIKE <cfqueryparam value="%#UCase( arguments.keyword )#%" cfsqltype="cf_sql_varchar" />
@@ -75,15 +73,13 @@
 					, i.locusidfk
 					, i.severityidfk
 					, i.useridfk
+					, i.issuetypeidfk
 					, p.name AS project
 					, i.name AS issue_name
 					, i.description AS description
 					, owner.name AS owner
 					, creator.name AS creator
-					, CASE WHEN i.isbug = 1
-					  	   THEN 'Bug'
-						   ELSE 'Enhancement'
-					  END AS issue_type
+					, it.name AS issue_type
 					, pl.name AS locus
 					, sev.name AS severity
 					, s.name AS status
@@ -97,6 +93,7 @@
 										  INNER JOIN CD_USERS creator ON creator.id = i.creatoridfk
 										  		INNER JOIN CD_STATUSES s ON s.id = i.statusidfk
 													  INNER JOIN CD_PROJECTS p ON p.id = i.projectidfk
+													  	INNER JOIN cd_issuetypes it ON it.id = i.issuetypeidfk
 			WHERE	1 = 1 										  
 				   <cfif StructKeyExists( arguments, 'projectidfk' ) AND arguments.projectidfk neq "" AND arguments.projectidfk neq -1>
 							AND	i.projectidfk IN (<cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.projectidfk#" list="true" />)
@@ -104,52 +101,7 @@
 						<cfif StructKeyExists( arguments, 'useridfk' ) AND arguments.useridfk neq "">
 							AND	i.useridfk = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.useridfk#" maxlength="35">
 						</cfif>
-			<!--- ORDER BY  	i.projectidfk, i.publicid, #arguments.sort# #arguments.sortdir#  --->
-			
-			<!--- SELECT 		i.id
-						, i.projectidfk
-						, i.created
-						, i.updated
-						, i.publicid
-						, i.duedate
-						, i.name
-						, i.useridfk
-						, i.description
-						, i.history
-						, i.creatoridfk
-						, i.isbug
-						, i.locusidfk
-						, i.severityidfk
-						, i.statusidfk
-						--, i.relatedurl
-						--, i.attachment
-						, pl.name AS locusname
-						, sev.name AS severityname
-						, st.name AS statusname
-						, p.name AS projectname
-						, sev.rank AS severityrank
-						, u.name AS username
-			FROM		( 
-							( 
-								( 
-									( 	
-										cd_issues i LEFT JOIN cd_projectloci pl ON i.locusidfk = pl.id 
-									)
-								 	LEFT JOIN cd_severities sev ON i.severityidfk = sev.id
-								 )
-								LEFT JOIN cd_statuses st ON i.statusidfk = st.id
-							)
-						LEFT JOIN cd_projects p ON i.projectidfk = p.id
-						)
-						LEFT JOIN cd_users u ON i.useridfk = u.id
-			WHERE		1=1
-						<cfif StructKeyExists( arguments, 'projectidfk' ) AND arguments.projectidfk neq "">
-							AND	i.projectidfk IN (<cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.projectidfk#" list="true" />)
-						</cfif>
-						<cfif StructKeyExists( arguments, 'useridfk' ) AND arguments.projectidfk neq "">
-							AND	i.useridfk = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.useridfk#" maxlength="35">
-						</cfif>
-			ORDER BY  	i.projectidfk, i.publicid, #arguments.sort# #arguments.sortdir# --->
+			ORDER BY  	i.projectidfk, i.publicid, #arguments.sort# #arguments.sortdir# 
 		</cfquery>
 		<cfreturn qIssuesForReport />
 	</cffunction>
