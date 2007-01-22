@@ -68,7 +68,6 @@
 			SELECT	i.id
 					, i.publicid
 					,  i.projectidfk
-					, i.isBug
 					, i.statusidfk
 					, i.locusidfk
 					, i.severityidfk
