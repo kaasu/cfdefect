@@ -17,10 +17,11 @@
 	<label for="name">Project: </label> 
 	<span>#record.getProjectName()#</span> <br />
 	
-	<label for="isBug">Type: </label>
-	<select name="isBug" id="isBug">
-		<option value="1">Bug</option>
-		<option value="0">Enhancement</option>
+	<label for="issuetypeidfk">Issue Type: </label>
+	<select name="issuetypeidfk" id="issuetypeidfk">
+		<cfloop query="supportingData.issuetypes">
+			<option value="#id#" <cfif record.getIssuetypeIDFK() eq id>selected</cfif>>#name#</option>
+		</cfloop>
 	</select><br />
 	
 	<label for="locusidfk">Locus: </label>

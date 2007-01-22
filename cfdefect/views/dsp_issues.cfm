@@ -15,9 +15,11 @@
 	<legend>Filter Issues</legend>
 	<select name="issue_type_selected" class="filter">
 		<option value="-1">All Issue Types</option>
-		<option value="1">Bug</option>
-		<option value="0">Enhancement</option>
+		<cfloop query="supportingData.issuetypes">
+			<option value="#id#">#name#</option>
+		</cfloop>
 	</select>
+	
 	<select name="locus_selected" class="filter">
 		<option value="-1">All Loci</option>
 		<cfloop query="supportingData.projectloci">

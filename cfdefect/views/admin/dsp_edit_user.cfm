@@ -8,7 +8,6 @@
 <ui:dspGenericEditForm 	myself= "#myself#"
 						xfa="#xfa#" 
 						type="#event.getValue( 'type' )#"
-						id="#record.getID()#"	
 						UDF="#event.getValue( 'UDF' )#"
 						help="Use the form below to edit a user. You may also assign a user to projects as well as manage their email subscription."	>
 		<label for="username">Username: </label>

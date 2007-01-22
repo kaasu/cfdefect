@@ -12,6 +12,7 @@
 	<p class="sideBarTitle">Adminitration</p>
 	<ul>
 		<li><a href="#event.getValue( 'myself' )##xfa.list#&type=announcement">Announcements</a></li>
+		<li><a href="#event.getValue( 'myself' )##xfa.list#&type=issuetype">Issue Types</a></li>
 		<li><a href="#event.getValue( 'myself' )##xfa.list#&type=project">Projects</a></li>
 		<li><a href="#event.getValue( 'myself' )##xfa.list#&type=projectlocus">Project Loci</a></li>
 		<li><a href="#event.getValue( 'myself' )##xfa.list#&type=severity">Severities</a></li>

@@ -8,7 +8,6 @@
 <ui:dspGenericEditForm 	myself= "#myself#"
 						xfa="#xfa#" 
 						type="#event.getValue( 'type' )#"
-						id="#record.getID()#"	
 						UDF="#event.getValue( 'UDF' )#"
 							help="Use this form to edit/add your announcement.">
 		<label for="title">Title: </label>
