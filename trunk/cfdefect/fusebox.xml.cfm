@@ -15,7 +15,6 @@
 		<parameter name="defaultFuseaction" value="c.home" />
 		<!-- you may want to change this to development-full-load mode: -->
 		<parameter name="mode" value="development-circuit-load" />
-		<!-- change this to something more secure: -->
 		<parameter name="password" value="cfdefect" />
 		<parameter name="strictMode" value="true" />
 		<parameter name="fuseactionVariable" value="do" />
@@ -23,11 +22,11 @@
 		<parameter name="scriptFileDelimiter" value="cfm" />
 		<parameter name="maskedFileDelimiters" value="htm,cfm,cfml,php,php4,asp,aspx" />
 		<parameter name="characterEncoding" value="utf-8" />
-		<parameter name="allowImplicitCircuits" value="false" />
+		<parameter name="allowImplicitCircuits" value="true" />
 		<!-- comment this if you want parsed files to be generated in your application's directory.  -->
 		<!-- <parameter name="parsePath" value="/cfdefect/parsed" /> -->
 		<!-- comment this if you want to process errortemplates in your website folders. For the most part, keep it like this.  -->
-		<parameter name="errortemplatesPath" value="/cfdefect/errortemplates" />
+		<!-- <parameter name="errortemplatesPath" value="/cfdefect/errortemplates" />  -->
 		<!--  <parameter name="lexiconPath" value="/cfdefect/lexicon" /> -->
 		<!-- <parameter name="pluginsPath" value="/cfdefect/plugins" />  -->
 		<parameter name="debug" value="false" />
