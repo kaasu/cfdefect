@@ -132,4 +132,141 @@
 			<invalidType>The DUEDATE field does not contain valid data.  This field must be a date value.</invalidType>
 			<invalidLength>The DUEDATE field is too long.  This field must be no more than 26 bytes long.</invalidLength>
 		</DUEDATE>
+		<Id>
+			<label>Id</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The Id field is required but was not provided.</notProvided>
+			<invalidType>The Id field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The Id field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</Id>
+		<name>
+			<label>name</label>
+			<comment/>
+			<maxlength>255</maxlength>
+			<notProvided>The name field is required but was not provided.</notProvided>
+			<invalidType>The name field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The name field is too long.  This field must be no more than 255 bytes long.</invalidLength>
+		</name>
+		<projectidfk>
+			<label>projectidfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The projectidfk field is required but was not provided.</notProvided>
+			<invalidType>The projectidfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The projectidfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</projectidfk>
+		<created>
+			<label>created</label>
+			<comment/>
+			<maxlength>0</maxlength>
+			<notProvided>The created field is required but was not provided.</notProvided>
+			<invalidType>The created field does not contain valid data.  This field must be a date value.</invalidType>
+		</created>
+		<updated>
+			<label>updated</label>
+			<comment/>
+			<maxlength>0</maxlength>
+			<notProvided>The updated field is required but was not provided.</notProvided>
+			<invalidType>The updated field does not contain valid data.  This field must be a date value.</invalidType>
+		</updated>
+		<useridfk>
+			<label>useridfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The useridfk field is required but was not provided.</notProvided>
+			<invalidType>The useridfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The useridfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</useridfk>
+		<creatoridfk>
+			<label>creatoridfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<invalidType>The creatoridfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The creatoridfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</creatoridfk>
+		<description>
+			<label>description</label>
+			<comment/>
+			<maxlength>65537</maxlength>
+			<notProvided>The description field is required but was not provided.</notProvided>
+			<invalidType>The description field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The description field is too long.  This field must be no more than 65537 bytes long.</invalidLength>
+		</description>
+		<history>
+			<label>history</label>
+			<comment/>
+			<maxlength>65537</maxlength>
+			<notProvided>The history field is required but was not provided.</notProvided>
+			<invalidType>The history field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The history field is too long.  This field must be no more than 65537 bytes long.</invalidLength>
+		</history>
+		<issuetypeidfk>
+			<label>issuetypeidfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The issuetypeidfk field is required but was not provided.</notProvided>
+			<invalidType>The issuetypeidfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The issuetypeidfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</issuetypeidfk>
+		<isbug>
+			<label>isbug</label>
+			<comment/>
+			<maxlength>1</maxlength>
+			<notProvided>The isbug field is required but was not provided.</notProvided>
+			<invalidType>The isbug field does not contain valid data.  This field must be a numeric value.</invalidType>
+			<invalidLength>The isbug field is too long.  This field must be no more than 1 bytes long.</invalidLength>
+		</isbug>
+		<locusidfk>
+			<label>locusidfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The locusidfk field is required but was not provided.</notProvided>
+			<invalidType>The locusidfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The locusidfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</locusidfk>
+		<severityidfk>
+			<label>severityidfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The severityidfk field is required but was not provided.</notProvided>
+			<invalidType>The severityidfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The severityidfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</severityidfk>
+		<statusidfk>
+			<label>statusidfk</label>
+			<comment/>
+			<maxlength>35</maxlength>
+			<notProvided>The statusidfk field is required but was not provided.</notProvided>
+			<invalidType>The statusidfk field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The statusidfk field is too long.  This field must be no more than 35 bytes long.</invalidLength>
+		</statusidfk>
+		<relatedURL>
+			<label>relatedURL</label>
+			<comment/>
+			<maxlength>255</maxlength>
+			<invalidType>The relatedURL field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The relatedURL field is too long.  This field must be no more than 255 bytes long.</invalidLength>
+		</relatedURL>
+		<attachment>
+			<label>attachment</label>
+			<comment/>
+			<maxlength>255</maxlength>
+			<invalidType>The attachment field does not contain valid data.  This field must be a string value.</invalidType>
+			<invalidLength>The attachment field is too long.  This field must be no more than 255 bytes long.</invalidLength>
+		</attachment>
+		<publicid>
+			<label>publicid</label>
+			<comment/>
+			<maxlength>11</maxlength>
+			<notProvided>The publicid field is required but was not provided.</notProvided>
+			<invalidType>The publicid field does not contain valid data.  This field must be a numeric value.</invalidType>
+			<invalidLength>The publicid field is too long.  This field must be no more than 11 bytes long.</invalidLength>
+		</publicid>
+		<duedate>
+			<label>duedate</label>
+			<comment/>
+			<maxlength>0</maxlength>
+			<invalidType>The duedate field does not contain valid data.  This field must be a date value.</invalidType>
+		</duedate>
 	</issues>
