@@ -8,7 +8,6 @@
 <ui:dspGenericEditForm 	myself= "#myself#"
 						xfa="#xfa#" 
 						type="Project"
-						id="#record.getID()#"	
 						UDF="#event.getValue( 'UDF' )#"
 						help="Use the form below to edit your project. Loci refer to the areas of your project where issues may be located. Typical examples include 'Database, Front End, Administrator, Components.' Only selected users will be able to work with issues."	>
 		<label for="name">Name: </label>

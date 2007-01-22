@@ -6,8 +6,7 @@
 </cfif>
 <ui:dspGenericEditForm 	myself= "#myself#"
 						xfa="#xfa#" 
-						type="#event.getValue( 'type' )#"
-						id="#record.getID()#"	
+						type="#event.getValue( 'type' )#"	
 						UDF="#event.getValue( 'UDF' )#"
 						help="Use the form below to edit a project loci. Project Loci are simply bug/issue locations.">
 		<label for="name">Name: </label>

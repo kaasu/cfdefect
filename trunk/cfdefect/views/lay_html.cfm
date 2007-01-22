@@ -18,7 +18,6 @@
 		<script type="text/javascript" src="views/_js/issue.js"></script>
 		<script>
 		issue = new Issue("<cfoutput>#event.getValue( 'myself' )##xfa.ajax_issues#</cfoutput>");	
-		console.log(Issue);
 		</script>
 		<script type="text/javascript">
 			addLoadEvent( function(){
