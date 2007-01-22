@@ -1,3 +1,4 @@
+// a JS class.
 function AjaxHelper(elem){
 	var _element = elem;
 	var self = this;
@@ -41,4 +42,5 @@ var myGlobalHandlers = {
 		}
 	}
 };
+// these are handlers that will occur on start and completion of each Ajax request.
 Ajax.Responders.register(myGlobalHandlers);
