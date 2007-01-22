@@ -42,7 +42,6 @@ var myrules = {
 	}
 	,'input.reset' : function(el){
 		el.onclick = function(){
-			console.log(el.form);
 			Form.reset('filterIssueForm');
 		}
 	}
