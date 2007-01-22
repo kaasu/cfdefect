@@ -54,7 +54,7 @@ CREATE TABLE `cd_issues` (
   `creatoridfk` varchar(35) NULL,
   `description` text NOT NULL,
   `history` text NOT NULL,
-  `isbug` tinyint(1) NOT NULL default '0',
+  `issuetypeidfk` varchar(35) NOT NULL,
   `locusidfk` varchar(35) NOT NULL,
   `severityidfk` varchar(35) NOT NULL,
   `statusidfk` varchar(35) NOT NULL,
@@ -68,6 +68,21 @@ CREATE TABLE `cd_issues` (
 #
 # Dumping data for table cd_issues
 #
+
+/*Table structure for table `cd_issuetypes` */
+
+drop table if exists `cd_issuetypes`;
+
+CREATE TABLE `cd_issuetypes` (
+  `id` varchar(35) NOT NULL default '',
+  `name` varchar(50) NOT NULL default '',
+  `rank` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `cd_issuetypes` */
+
+insert into `cd_issuetypes` values ('476DDDF5-1111-82AF-D696221A6DA30215','Bug',1),('476E2BD7-1111-82AF-D64F7E3EE9F5CDB9','Enhancement',2);
 
 
 #
