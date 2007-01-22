@@ -42,7 +42,7 @@
 		<!-- The directory in which to put generated code -  do not modify this. -->
 		<property name="mapping"><value>/cfdefect/com/data</value></property>
 		<!-- Should reactor detect changes (development), run fast but not detect changes (production), or always re-generate code (always)? -->
-		<property name="mode"><value>production</value></property>
+		<property name="mode"><value>development</value></property>
 	</bean>
 	
 	<!-- *******************************************************************************
