@@ -12,6 +12,10 @@ function addLoadEvent(func) {
   }
 }
 
+/* 
+	Define ounobtrusive Javascript Behaviour rules here. 
+	For details please refer to this url http://www.bennolan.com/behaviour/ 
+*/
 var myrules = {
 	'a.delete' : function(el){
 		el.onclick = function(){
@@ -35,8 +39,8 @@ var myrules = {
 	}
 	,'input.filter' : function(el){
 		el.onclick = function(){
-			//var e = el.form.keyword.value;
-			//if (e.trim().length > 0)
+			var e = el.form.keyword.value;
+			if (e.trim().length > 0)
 				issue.getIssues(el.form);
 		}
 	}
