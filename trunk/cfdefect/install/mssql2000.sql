@@ -12,7 +12,12 @@ GO
 if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issues]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
 drop table [dbo].[cd_issues]
 GO
-/****** Object:  Table [dbo].[cd_issues]     ******/if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issuestypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)drop table [dbo].[cd_issuestypes]GO
+
+/****** Object:  Table [dbo].[cd_issues]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issuetypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_issuetypes]
+GO
+
 /****** Object:  Table [dbo].[cd_projectloci]     ******/
 if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projectloci]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
 drop table [dbo].[cd_projectloci]
@@ -209,7 +214,8 @@ INSERT INTO cd_issuetypes(id, name,rank) VALUES
 INSERT INTO cd_projectloci(id, name) VALUES 
 ('A5EF700C-AB69-4306-4449F6526B7009E4','Front End');
 
-INSERT INTO cd_projectloci(id, name) VALUES ('A5EFAF58-9200-29D3-A4CC2FC42580944D','Administration');
+INSERT INTO cd_projectloci(id, name) VALUES 
+('A5EFAF58-9200-29D3-A4CC2FC42580944D','Administration');
 
 INSERT INTO cd_projectloci(id, name) VALUES 
 ('A5F0620E-F052-9042-7478FF91A21A420A','Documentation');
