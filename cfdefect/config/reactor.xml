@@ -22,7 +22,12 @@
 			<hasOne name="statuses" alias="status">
 				<relate from="statusidfk" to="id" />
 			</hasOne>
+			<hasOne name="issuetypes" alias="issuetype">
+				<relate from="issuetypeidfk" to="id" />
+			</hasOne>
 		</object> 
+		
+		<object name="cd_issuetypes" alias="issuetypes" />
 		
 		<object name="CD_PROJECTLOCI" alias="projectloci" />
 		

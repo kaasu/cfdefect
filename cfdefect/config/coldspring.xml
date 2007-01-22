@@ -19,6 +19,7 @@
 		<property name="SeverityService"><ref bean="SeverityService" /></property>
 		<property name="ProjectLocusService"><ref bean="ProjectLocusService" /></property>
 		<property name="ApplicationConfiguration"><ref bean="ApplicationConfig" /></property>
+		<property name="IssueTypeService"><ref bean="IssueTypeService" /></property>	
 	</bean>	
 	
 	<!--  this an example of AOP  -->
@@ -41,6 +42,7 @@
 		<property name="SeverityService"><ref bean="SeverityService" /></property>
 		<property name="StatusService"><ref bean="StatusService" /></property>
 		<property name="UserService"><ref bean="UserService" /></property>		
+		<property name="IssueTypeService"><ref bean="IssueTypeService" /></property>		
 	</bean>
 	
 	<!-- Proxy bean for IssueService. -->
@@ -71,6 +73,12 @@
 		<property name="mappedNames">
 			<value>validateAndProcess</value>
 		</property>
+	</bean>
+	
+	<bean id="IssueTypeService" class="cfdefect.com.cfdefect.service.GenericService">
+		<constructor-arg name="tablename"><value>issuetypes</value></constructor-arg>
+		<constructor-arg name="columns"><value>name~rank</value></constructor-arg>
+		<property name="reactorfactory"><ref bean="ReactorFactory" /></property>
 	</bean>
 	
 	<bean id="AnnouncementService" class="cfdefect.com.cfdefect.service.AnnouncementService">
