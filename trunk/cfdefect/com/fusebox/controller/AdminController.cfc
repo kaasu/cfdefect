@@ -1,4 +1,4 @@
-<cfcomponent output="false" displayname="AdminController" hint="" extends="cfdefect.com.cfdefect.core.AbstractController">
+<cfcomponent output="false" displayname="AdminController" hint="" extends="AbstractController">
 
 <cffunction name="init" returntype="AdminController" output="false" access="public" hint="Constructor">
 	<cfreturn this />
@@ -32,7 +32,8 @@
 
 <cffunction name="validateAndProcess" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
-	<cfset arguments.event.setValue( 'recordObject', getBean( arguments.event.getValue( 'type' ) & 'Service' ).validateAndProcess( getUDF().getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
+	<cfset var udf = arguments.event.getValue( 'UDF' ) />
+	<cfset arguments.event.setValue( 'recordObject', getBean( arguments.event.getValue( 'type' ) & 'Service' ).validateAndProcess( udf.getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
 </cffunction>
 
 <cffunction name="delete" returntype="void" access="public" output="false" hint="">
