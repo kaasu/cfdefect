@@ -114,20 +114,9 @@
 		<cfset local.projects[projectidfk].severities = populateWithQuery( getSeverityService().getAll(), local.projects[projectidfk] ) />
 		<cfset local.projects[projectidfk].users = populateWithQuery( getUserService().getAll(), local.projects[projectidfk] ) />
 		<cfset local.projects[projectidfk].loci = populateWithQuery( getProjectLocusService().getAll(), local.projects[projectidfk] ) />
-		<cfset local.projects[projectidfk].issue_types = StructNew() />
-		<cfset local.projects[projectidfk].issue_types['bugs'] = StructNew() />
-		<cfset local.projects[projectidfk].issue_types['enhancements'] = StructNew() />
-		
-		<cfset local.projects[projectidfk].issue_types['enhancements'].name = 'Enhancements' />
-		<cfset local.projects[projectidfk].issue_types['bugs'].name = 'Bugs' />
-		<cfset local.projects[projectidfk].issue_types['bugs'].total = 0 />
-		<cfset local.projects[projectidfk].issue_types['enhancements'].total = 0 />
+		<cfset local.projects[projectidfk].issue_types =  populateWithQuery( getIssueTypeService().getAll(), local.projects[projectidfk] ) />
 		<cfoutput>
-			<cfif isBug>
-				<cfset local.projects[projectidfk].issue_types['bugs'].total = local.projects[projectidfk].issue_types['bugs'].total + 1 />
-			<cfelse>
-				<cfset local.projects[projectidfk].issue_types['enhancements'].total = local.projects[projectidfk].issue_types['enhancements'].total + 1 />
-			</cfif>
+			<cfset local.projects[projectidfk].issue_types[issuetypeidfk].total = local.projects[projectidfk].issue_types[issuetypeidfk].total + 1 />
 			<cfset local.projects[projectidfk].statuses[statusidfk].total = local.projects[projectidfk].statuses[statusidfk].total + 1 />
 			<cfset local.projects[projectidfk].severities[severityidfk].total = local.projects[projectidfk].severities[severityidfk].total + 1 />
 			<cfset local.projects[projectidfk].loci[locusidfk].total = local.projects[projectidfk].loci[locusidfk].total + 1 />
@@ -173,6 +162,7 @@
 	</cfoutput>
 	<cfreturn local.chart />
 </cffunction>
+
 <!--- GETTER & SETTER --->
 <cffunction name="getApplicationConfiguration" access="private" returntype="cfdefect.com.cfdefect.core.ApplicationConfiguration" output="false" hint="Getter for ApplicationConfiguration">
 	<cfreturn variables.instance.ApplicationConfiguration />
@@ -190,6 +180,15 @@
 <cffunction name="setIssueService" access="public" returntype="void" output="false" hint="Setter for IssueService">
 	<cfargument name="IssueService" type="cfdefect.com.cfdefect.service.IssueService" required="true" />
 	<cfset variables.instance.IssueService = arguments.IssueService>
+</cffunction>
+
+<cffunction name="getIssueTypeService" access="private" returntype="cfdefect.com.cfdefect.service.AbstractService" output="false" hint="Getter for IssueTypeService">
+	<cfreturn variables.instance.IssueTypeService />
+</cffunction>
+
+<cffunction name="setIssueTypeService" access="public" returntype="void" output="false" hint="Setter for IssueTypeService">
+	<cfargument name="IssueTypeService" type="cfdefect.com.cfdefect.service.GenericService" required="true" />
+	<cfset variables.instance.IssueTypeService = arguments.IssueTypeService>
 </cffunction>
 
 <cffunction name="getProjectService" access="private" returntype="cfdefect.com.cfdefect.service.ProjectService" output="false" hint="Getter for ProjectService">
