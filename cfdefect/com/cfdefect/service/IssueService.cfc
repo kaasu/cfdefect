@@ -12,6 +12,7 @@
 	<cfset supportingData['severities'] = getSeverityService().getAll() />
 	<cfset supportingData['statuses'] = getStatusService().getAll() />
 	<cfset supportingData['users'] = getUserService().getAll() />
+	<cfset supportingData['issuetypes'] = getIssueTypeService().getAll() />
 	<cfreturn supportingData />
 </cffunction>
 
@@ -87,7 +88,6 @@
 	<cfif NOT record._getErrorCollection().hasErrors()>
 		<cfif getFormFacade().exists( arguments.data['newattachment_field'] ) AND len( getFormFacade().get( arguments.data['newattachment_field'] ) )>
 			<cfif Len( record.getAttachment() )>
-				
 				<cfset getFileService().delete( record.getAttachment() ) />
 			</cfif>
 			
@@ -127,6 +127,15 @@
 <cffunction name="setFileService" access="public" returntype="void" output="false" hint="Setter for FileService">
 	<cfargument name="FileService" type="cfdefect.com.cfdefect.core.FileService" required="true" />
 	<cfset variables.instance.FileService = arguments.FileService>
+</cffunction>
+
+<cffunction name="getIssueTypeService" access="private" returntype="cfdefect.com.cfdefect.service.AbstractService" output="false" hint="Getter for IssueTypeService">
+	<cfreturn variables.instance.IssueTypeService />
+</cffunction>
+
+<cffunction name="setIssueTypeService" access="public" returntype="void" output="false" hint="Setter for IssueTypeService">
+	<cfargument name="IssueTypeService" type="cfdefect.com.cfdefect.service.GenericService" required="true" />
+	<cfset variables.instance.IssueTypeService = arguments.IssueTypeService>
 </cffunction>
 
 <cffunction name="getSecurityService" access="private" returntype="cfdefect.com.cfdefect.core.SecurityService" output="false" hint="Getter for SecurityService">
