@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE fusebox:circuit PUBLIC "circuit.dtd" "circuit.dtd"> 
 <circuit access="public" xmlns:cs="/cfdefect/com/fusebox/lexicon/coldspring/">
 	
 	<prefuseaction callsuper="false">

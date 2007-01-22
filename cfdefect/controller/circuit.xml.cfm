@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE fusebox:circuit PUBLIC "circuit.dtd" "circuit.dtd"> 
+<!-- lexicons are utilized by using a mapped path -->
 <circuit access="public" xmlns:cf="/cfdefect/com/fusebox/lexicon/cf" xmlns:cs="/cfdefect/com/fusebox/lexicon/coldspring">
 	
+	<!-- public fuseactions -->
 	<fuseaction name="home">
 		<do action="userannoucements" contentvariable="content.userAnnouncements" />
 		<do action="userprojectstats" contentvariable="content.userStats" />
@@ -130,7 +131,6 @@
 		<xfa name="rss" value="viewrss" />
 		<invoke object="Controller" methodcall="getProjectForRSS( event )" />
 		<include template="dsp_select_rss.cfm" circuit="v" required="true" contentvariable="content.pageContent"  />
-		
 		<do action="layout" />
 	</fuseaction>
 	
