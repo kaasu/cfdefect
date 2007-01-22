@@ -70,7 +70,6 @@
 	<cfset arguments.event.setValue( 'recordObject', getBean( 'IssueService' ).validateAndProcess( udf.getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
 </cffunction>
 
-
 <cffunction name="getProjectForReport" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
 	<cfset arguments.event.setValue( 'qProject', getBean( 'ReportService' ).getProjects() ) />
