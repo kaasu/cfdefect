@@ -20,7 +20,4 @@ limitations under the License.
 					applicationtimeout="#createTimeSpan( 3, 1, 0, 0 )#"
 					sessionmanagement="true"
 					sessiontimeout="#createTimeSpan( 0, 1, 10, 0 )#">		
-					
-<!--- <cfparam name="url['fusebox.load']" default="true" />	
-<cfparam name="url['fusebox.password']" default="cfdefect" /> --->
 </cfsilent>
