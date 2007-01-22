@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- ///////////////////////////////////////////////////////////////
+				Coldspring configuraton file. 
+/////////////////////////////////////////////////////////////////// -->
 <beans>
 	<bean id="RSSService" class="cfdefect.com.cfdefect.rss.RSSService" init-method="configure">
 		<constructor-arg name="applicationURL"><value>${applicationURL}</value></constructor-arg>
@@ -22,7 +25,7 @@
 		<property name="IssueTypeService"><ref bean="IssueTypeService" /></property>	
 	</bean>	
 	
-	<!--  this an example of AOP  -->
+	<!--  this an example of AOP where I have defined an AroundAdvice.  -->
 	<bean id="IssueServiceTarget" class="cfdefect.com.cfdefect.service.IssueService">
 		<constructor-arg name="tablename"><value>issues</value></constructor-arg>
 		<constructor-arg name="columns"><value>publicid~name~type~locus~severity~status~owner~due_date~updated</value></constructor-arg>
@@ -140,26 +143,6 @@
 	<bean id="ReactorCompiler" class="cfdefect.com.cfdefect.core.ReactorCompiler">
 		<property name="reactorConfiguration"><ref bean="reactorConfiguration"/></property>
 	</bean>
-	
-	<!-- 
-	<bean id="ReactorCompiler_Remote" class="coldspring.aop.framework.RemoteFactoryBean">
-		<property name="target">
-			<ref bean="ReactorCompiler" />
-		</property>
-		<property name="serviceName">
-			<value>RemoteReactorCompiler</value>
-		</property>
-		<property name="relativePath">
-			<value>/cfdefect_site/remote/</value>
-		</property>
-		<property name="remoteMethodNames">
-			<value>*</value>
-		</property>
-		<property name="beanFactoryName">
-			<value>serviceFactory</value>
-		</property>
-	</bean>
-	 -->
 	 
 	 <bean id="UDF" class="cfdefect.com.cfdefect.core.UDF" />
 </beans>

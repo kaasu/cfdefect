@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Reactor's configuration file where all database objects are identified. 
+	Please refer to reactor documentation for details.
+ -->
 <reactor>
 	<objects>		
 		<object name="CD_ANNOUNCEMENTS" alias="announcements"  />
