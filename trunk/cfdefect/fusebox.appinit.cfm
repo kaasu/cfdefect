@@ -1,33 +1,19 @@
 <!---
-	fusebox.appinit.cfm is included by the framework when the application is
-	started, i.e., on the very first request (in production mode) or whenever
-	the framework is reloaded, either with development-full-load mode or when
-	fusebox.load=true or fusebox.loadclean=true is specified.
-	It is included within a cfsilent tag so it cannot generate output. It is
-	intended to be for per-application initialization that can not easily be
-	done in the appinit global fuseaction.
-	It is included inside a conditional lock, ensuring that only one request
-	can execute this file.
-	
-	For example, if you are sharing application variables between a Fusebox
-	application and a non-Fusebox application, you can initialize them here
-	and then cfinclude this file into your non-Fusebox application.
+Copyright 2006 Qasim Rasheed (www.qasimrasheed.com)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 --->
 <cfsilent>
-<!--- cfset >
-<cfif getPageContext().getRequest().isSecure()>
-	<cfset applicationURL = 'https://'>
-</cfif>
-<cfset applicationURL = applicationURL & getPageContext().getRequest().getServerName().toString() />
-
-<cfif getPageContext().getRequest().getServerPort() neq '80'>
-	<cfset applicationURL = applicationURL &  ':' & getPageContext().getRequest().getServerPort()/>
-</cfif>
-<!--- <cfset applicationURL = applicationURL & '/'> --->
-<!--- <cfset applicationURL = applicationURL & getPageContext().getRequest().getRequestURI() & '?' & myfusebox.getApplication().fuseactionVariable & '=' />  --->
-
-<cfset applicationURL = applicationURL & getPageContext().getRequest().getRequestURI() />
-<cfdump var="#applicationURL#"><cfabort> --->
 <cfscript>
 applicationURL = 'http://';
 if ( getPageContext().getRequest().isSecure() ){
@@ -45,7 +31,6 @@ serviceFactory = CreateObject( 'component', 'coldspring.beans.DefaultXmlBeanFact
 serviceFactory.loadBeans( beanDefinitionFileName=myFuseBox.getApplication().approotdirectory & '/config/appconfig.xml' );
 myFusebox.getApplication().getApplicationData().put( COLDSPRING_FACTORY_NAME, serviceFactory );
 application.serviceFactory = myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ); 
-//reactorCompiler = myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ).getBean( 'reactorCompiler_remote' );
 </cfscript>
 </cfsilent>
 
