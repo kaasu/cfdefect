@@ -32,17 +32,17 @@
 		<!-- The directory under /reactor/project in which to put generated base code. Do not modify -->
 		<property name="project"><value>cfdefect</value></property>
 		<!-- The datasource name to use. -->
-		<property name="dsn"><value>cfdefect_mysql</value></property>
+		<property name="dsn"><value>ESPRD</value></property>
 		<!--  user name for the datasource -->
-		<property name="username"><value>root</value></property>
+		<property name="username"><value>INDUS</value></property>
 		<!--  password name for the datasource -->
-		<property name="password"><value>cd0694</value></property>
+		<property name="password"><value>critter</value></property>
 		<!-- type of database i.e. oracle, mssql, mysql4 etc. -->
-		<property name="type"><value>mysql4</value></property>
+		<property name="type"><value>oracle</value></property>
 		<!-- The directory in which to put generated code -  do not modify this. -->
 		<property name="mapping"><value>/cfdefect/com/data</value></property>
 		<!-- Should reactor detect changes (development), run fast but not detect changes (production), or always re-generate code (always)? -->
-		<property name="mode"><value>production</value></property>
+		<property name="mode"><value>development</value></property>
 	</bean>
 	
 	<!-- *******************************************************************************
