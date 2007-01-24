@@ -2,7 +2,6 @@
 	<cfparam name="attributes.errors" type="array" />
 	<cfoutput>
 	<cfset errors = attributes.errors />	
-	<!--- <cfset errors = record._getErrorCollection().getTranslatedErrors() /> --->
 	<div class="lighterBox">
 		<p>Please correct following errors!</p>
 		<ul>

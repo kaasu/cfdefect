@@ -1,7 +1,9 @@
 <cfif thisTag.ExecutionMode eq 'start'>
+	<cfsilent>
 	<cfparam name="attributes.data"  type="query" />
 	<cfparam name="attributes.title"  type="string" />
 	<cfparam name="attributes.link"  type="string" />
+	</cfsilent>
 	<cfoutput>
 	<dl class="table-display">
 		<cfloop query="attributes.data">

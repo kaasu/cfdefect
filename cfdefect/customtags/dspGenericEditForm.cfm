@@ -13,8 +13,7 @@
 	<cfset UDF = attributes.UDF />
 	<cfset help = attributes.help />
 	<cfset formEnctype = attributes.formEnctype />
-	</cfsilent>
-	
+	</cfsilent>	
 	</cfcase>
 	<cfcase value="end">
 		<cfoutput>
