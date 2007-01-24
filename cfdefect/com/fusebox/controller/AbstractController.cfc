@@ -11,6 +11,8 @@
 </cffunction>
 
 <!--- GETTER & SETTER --->
+<!--- By declaring a getter and setter for BeanFactory, ColdSpring will inject the entire factory into this CFC. 
+	This is needed since we do not have autowiring support in Fusebox yet. --->
 <cffunction name="getBeanFactory" access="private" returntype="coldspring.beans.BeanFactory" output="false" hint="Getter for BeanFactory">
 	<cfreturn variables.instance.BeanFactory />
 </cffunction>
