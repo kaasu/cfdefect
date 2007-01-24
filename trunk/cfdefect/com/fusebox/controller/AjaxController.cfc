@@ -6,7 +6,7 @@
 
 <!--- PUBLIC METHODS --->
 <cffunction name="getIssuesForProject"  returntype="void" access="public" output="true" hint="">
-	<cfargument name="event" type="fusebox5.FuseboxEvent" required="true" hint="" />
+	<cfargument name="event" type="any" required="true" hint="" />
 	<cfargument name="myself" type="string" required="true" hint="" />
 	<cfargument name="editXFA" type="string" required="true" hint="" />
 	<cfset var temp =  "" />
