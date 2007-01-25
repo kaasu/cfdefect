@@ -6,7 +6,7 @@
 <cfimport taglib="/cfdefect/customtags" prefix="ui" />
 </cfsilent>
 <cfoutput>
-<ui:dspDataTable myself="#myself#" xfa="#xfa#" type="#type#" udf="#UDF#" headers="#columns#">
+<ui:dspDataTable myself="#myself#" xfa="#xfa#" type="#type#" udf="#UDF#" headers="#columns#" showdelete="#data.recordcount GT 0#">
 	<cfif NOT data.recordcount>
 		<tr>
 			<td colspan="#ArrayLen( columns ) + 1#">No #type#(s) found.</td>

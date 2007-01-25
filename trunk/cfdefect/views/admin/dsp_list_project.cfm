@@ -6,7 +6,7 @@
 <cfimport taglib="/cfdefect/customtags" prefix="ui" />
 </cfsilent>
 <cfoutput>
-<ui:dspDataTable myself="#myself#" xfa="#xfa#" type="#type#" udf="#UDF#" headers="#columns#">
+<ui:dspDataTable myself="#myself#" xfa="#xfa#" type="#type#" udf="#UDF#" headers="#columns#" showdelete="#data.recordcount GT 0#">
 	<cfif NOT data.recordcount>
 		<tr>
 			<td colspan="#Arraylen( columns ) + 1#">No project(s) found.</td>
@@ -14,7 +14,7 @@
 	<cfelse>
 		<cfloop query="data">
 			<tr>
-				<td><input type="checkbox" name="id" value="#id#" /></td>
+				<td><input type="checkbox" name="chkid" value="#id#" /></td>
 				<cfloop from="1" to="#ArrayLen( columns )#" index="i">
 					<cfif columns[i] neq 'view_issues'>
 						<td>
