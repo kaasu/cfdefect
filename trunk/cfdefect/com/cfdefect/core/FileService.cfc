@@ -14,8 +14,8 @@
 <!--- PUBLIC METHODS --->
 <cffunction name="delete" returntype="void" access="public" output="false" hint="">
 	<cfargument name="filename" type="string" required="true" hint="" />
-	<cfif FileExists( getPath() & arguments.filename )>
-		<cffile action="delete" file="#getPath()##arguments.file#" />
+	<cfif FileExists( getPath() & '\' & arguments.filename )>
+		<cffile action="delete" file="#getPath()#\#arguments.filename#" />
 	</cfif>
 </cffunction>
 

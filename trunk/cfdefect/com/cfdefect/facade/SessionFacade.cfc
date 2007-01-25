@@ -1,4 +1,46 @@
-<cfcomponent output="false" displayname="SessionFacade" hint="" extends="BaseFacade">
+<cfcomponent output="false" displayname="SessionFacade" hint="">
+
+<cffunction name="init" returntype="SessionFacade" output="false" access="public" hint="Constructor">
+	<cfreturn this />
+</cffunction>
+
+<cffunction name="put" access="public" returntype="void" output="false" hint="I set a value in the scope.">
+	<cfargument name="key" type="string" required="true" hint="I am the name of the value.">
+	<cfargument name="value" type="any" required="true" hint="I am the value.">	
+	<cflock scope="session" type="exclusive" timeout="5">
+		<cfset session[arguments.key] = arguments.value />
+	</cflock>
+</cffunction>
+
+<cffunction name="get" access="public" returntype="any" output="false" hint="I get a value from the scope or the default or an empty string.">
+	<cfargument name="key" type="string" required="true" hint="I am the name of the value.">
+	<cflock scope="session" type="readonly" timeout="2">
+		<cfreturn session[arguments.key] />
+	</cflock>
+</cffunction>
+	
+<cffunction name="remove" access="public" returntype="void" output="false" hint="I remove a value from the scope.">
+	<cfargument name="key" type="string" required="true" hint="I am the name of the value.">
+	<cflock scope="session" type="exclusive" timeout="5">
+		<cfset StructDelete( session, arguments.key, false ) />
+	</cflock>
+</cffunction>
+
+<cffunction name="exists" access="public" returntype="boolean" output="false" hint="I state if a value exists.">
+	<cfargument name="key" type="string" required="true" hint="I am the name of the value.">
+	<cflock scope="session" type="readonly" timeout="5">
+		<cfreturn StructKeyExists( session, arguments.key ) />
+	</cflock>
+</cffunction>
+		
+<!--- PUBLIC METHODS --->
+
+<!--- PRIVATE METHODS --->
+
+<!--- GETTER & SETTER --->
+</cfcomponent>
+
+<!--- <cfcomponent output="false" displayname="SessionFacade" hint="" extends="BaseFacade">
 
 <cffunction name="init" returntype="SessionFacade" output="false" access="public" hint="Constructor">
 	<cfargument name="scopename" type="string" required="true" hint="" />
@@ -39,4 +81,4 @@
 <!--- PRIVATE METHODS --->
 
 <!--- GETTER & SETTER --->
-</cfcomponent>
+</cfcomponent> --->
