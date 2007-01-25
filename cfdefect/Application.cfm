@@ -15,9 +15,9 @@ limitations under the License.
 --->
 <cfsilent>	
 	<!--- using #hash( getCurrentTemplatePath() )# makes this application name unique to this application --->
-	<cfset myAppName = hash( getCurrentTemplatePath() ) & 'cfdefect_mssql'/>
+	<cfset myAppName = hash( getCurrentTemplatePath() ) />
 	<cfapplication 	name="#myAppName#"
-					applicationtimeout="#createTimeSpan( 3, 1, 0, 0 )#"
+					applicationtimeout="#createTimeSpan( 0, 1, 0, 0 )#"
 					sessionmanagement="true"
-					sessiontimeout="#createTimeSpan( 0, 1, 10, 0 )#">		
+					sessiontimeout="#createTimeSpan( 0, 0, 30, 0 )#">
 </cfsilent>

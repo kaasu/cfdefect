@@ -21,7 +21,6 @@ SecurityController = myFusebox.getApplication().getApplicationData().get( COLDSP
 SecurityController.OnRequestStart( event );
 myself = myFusebox.getMyself();
 event.setValue( 'myself', myFusebox.getMyself() );
-//event.setValue( 'myFusebox', myFusebox );
 
 //some global xfa
 xfa.home = 'c.home';

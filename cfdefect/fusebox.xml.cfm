@@ -11,7 +11,7 @@
 	<parameters>
 		<parameter name="defaultFuseaction" value="c.home" />
 		<!-- you may want to change this to development-full-load mode: -->
-		<parameter name="mode" value="development-circuit-load" />
+		<parameter name="mode" value="production" />
 		<parameter name="password" value="cfdefect" />
 		<parameter name="strictMode" value="true" />
 		<parameter name="fuseactionVariable" value="do" />
@@ -39,8 +39,6 @@
 	<plugins>
 		<phase name="preProcess">
 			<plugin name="Security" template="security.cfm" path="/cfdefect/com/fusebox/plugins">
-				<parameter name="factory" value="serviceFactory"/>
-				<parameter name="bean" value="SecurityService"/>
 				<parameter name="skipFuseactions" value="c.doLogin" />
 				<parameter name="failed" value="c.login"/>
 			</plugin>
