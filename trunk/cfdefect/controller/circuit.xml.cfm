@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fusebox:circuit PUBLIC "circuit.dtd" "circuit.dtd"> 
 <!-- lexicons are utilized by using a mapped path -->
 <circuit access="public" xmlns:cf="/cfdefect/com/fusebox/lexicon/cf" xmlns:cs="/cfdefect/com/fusebox/lexicon/coldspring">
 	
@@ -95,6 +96,11 @@
 				<relocate url="#myself##myfusebox.originalcircuit#.issues&amp;projectidfk=#URLEncodedFormat( event.getValue( 'projectidfk' ) )#" addtoken="false" type="client" />
 			</false>
 		</if>
+	</fuseaction>
+	
+	<fuseaction name="deleteIssue">
+		<invoke object="Controller" methodcall="deleteIssue( event )" />
+		<relocate url="#myself##myfusebox.originalcircuit#.issues&amp;projectidfk=#URLEncodedFormat( event.getValue( 'projectidfk' ) )#" addtoken="false" type="client" />
 	</fuseaction>
 	
 	<fuseaction name="ajax_issues">
