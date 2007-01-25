@@ -19,7 +19,7 @@
 	<cfset local.recordHolder['new'] = arguments.methodInvocation.proceed() />
 	
 	<!--- if there were no errors --->
-	<!--- <cfif NOT local.recordHolder['new'].hasErrors()>
+	<cfif NOT local.recordHolder['new'].hasErrors()>
 		<cfset local.recordForEmail = prepareRecordForEmail( local.recordHolder ) />
 		
 		<cfset local.email = getEmailService().createEmail()>
@@ -31,7 +31,7 @@
 		<cfset local.email.addHeader( 'X-Message-Flag', 'Follow up' ) />
 		<!--- TODO: Implement Reply By functionality --->
 		<cfset local.email.send() />
-	</cfif> --->
+	</cfif>
 	<cfreturn local.recordHolder['new'] />
 </cffunction>
 
