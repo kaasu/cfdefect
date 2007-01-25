@@ -92,6 +92,8 @@
 		<cfset deleteRelatedRecords( 'projectsProjectLoci', getID(), 'projectidfk' ) />
 		<!--- delete project announcements --->
 		<cfset deleteRelatedRecords( 'announcements', getID(), 'projectidfk' ) />
+		<!--- delete project issues --->
+		<cfset deleteRelatedRecords( 'issues', getID(), 'projectidfk' ) />
 		<!--- call super method --->
 		<cfset super.afterDelete() />
 	</cffunction>
