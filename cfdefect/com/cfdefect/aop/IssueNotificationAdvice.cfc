@@ -141,7 +141,7 @@ Link: #arguments.emailRecord.link#
 	<cfset local.ret['locus'] = printWithOldValueIfExists( arguments.recordHolder, local.toHolder, 'locusidfk', 'locusname' ) />
 	<cfset local.ret['severity'] = printWithOldValueIfExists( arguments.recordHolder, local.toHolder, 'severityidfk', 'severityname' ) />
 	<cfset local.ret['status'] = printWithOldValueIfExists( arguments.recordHolder, local.toHolder, 'statusidfk', 'statusname' ) />
-	<cfset local.ret['type'] = printWithOldValueIfExists( arguments.recordHolder, local.toHolder, 'isBug', 'issuetypename' ) />
+	<cfset local.ret['type'] = printWithOldValueIfExists( arguments.recordHolder, local.toHolder, 'issuetypeidfk', 'issuetypename' ) />
 	<cfset local.ret['relatedurl'] = local.toHolder['new'].relatedurl />
 	<cfset local.ret['creator'] = local.toHolder['new'].creatorName />
 	<cfset local.ret['created'] = DateFormat( local.toHolder['new'].created,  'mm/dd/yyyy' ) & ' ' & TimeFormat( local.toHolder['new'].created, 'short' )/>
