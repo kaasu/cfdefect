@@ -86,7 +86,8 @@
 	<cfset record.validate() />
 	
 	<cfif NOT record._getErrorCollection().hasErrors()>
-		<cfif getFormFacade().exists( arguments.data['newattachment_field'] ) AND len( getFormFacade().get( arguments.data['newattachment_field'] ) )>
+		<cfset local.formFacade = CreateObject( 'component', 'cfdefect.com.cfdefect.facade.BaseFacade' ).init( 'form' )>
+		<cfif local.formFacade.exists( arguments.data['newattachment_field'] ) AND len( local.formFacade.get( arguments.data['newattachment_field'] ) )>
 			<cfif Len( record.getAttachment() )>
 				<cfset getFileService().delete( record.getAttachment() ) />
 			</cfif>
@@ -96,6 +97,10 @@
 			<cfif StructCount( local.attachmentData ) AND StructKeyExists( local.attachmentData, 'fileWasSaved' ) AND local.attachmentData.fileWasSaved>
 				<cfset record.setAttachment( local.attachmentData.serverfile ) />
 			</cfif>
+		<!--- delete old attachment if delete checkbox is checked. --->	
+		<cfelseif StructKeyExists( arguments.data, 'deleteAttachment' )>
+			<cfset getFileService().delete( record.getAttachment() ) />
+			<cfset record.setAttachment( '' ) />
 		</cfif>
 		<cfset record.save( getSecurityService().getUser() ) />
 	</cfif>
@@ -111,15 +116,6 @@
 <!--- PRIVATE METHODS --->
 
 <!--- GETTER & SETTER --->
-<cffunction name="getFormFacade" access="public" returntype="cfdefect.com.cfdefect.facade.BaseFacade" output="false" hint="Getter for FormFacade">
-	<cfreturn variables.instance.FormFacade />
-</cffunction>
-
-<cffunction name="setFormFacade" access="public" returntype="void" output="false" hint="Setter for FormFacade">
-	<cfargument name="FormFacade" type="cfdefect.com.cfdefect.facade.BaseFacade" required="true" />
-	<cfset variables.instance.FormFacade = arguments.FormFacade>
-</cffunction>
-
 <cffunction name="getFileService" access="public" returntype="cfdefect.com.cfdefect.core.FileService" output="false" hint="Getter for FileService">
 	<cfreturn variables.instance.FileService />
 </cffunction>
