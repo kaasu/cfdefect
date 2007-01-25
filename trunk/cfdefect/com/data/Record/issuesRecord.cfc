@@ -46,6 +46,16 @@
 		<cfset setUpdated( Now() ) />	
 	</cffunction>
 	
+	<!--- afterDelete --->
+	<cffunction name="afterDelete" access="private" hint="I am code executed after deleting the record." output="false" returntype="void">
+		<!--- delete attachments --->
+		<cfif Len( Trim( getAttachment() ) ) >
+			<cfset _getBean( 'IssueService' ).deleteAttachment( getAttachment() ) />
+		</cfif>
+		<!--- call super method --->
+		<cfset super.afterDelete() />
+	</cffunction>
+	
 	<cffunction name="generatePublicID" returntype="string" access="private" output="false" hint="">
 		<cfset var local =  StructNew() />
 		<cfset local.gateway = _getReactorFactory().createGateway( _getAlias() ) />
@@ -109,11 +119,7 @@
 	</cffunction>
 	
 	<cffunction name="getIssueTypeName" access="public" returntype="string" output="false" hint="Getter for IssueTypeName">
-		<cfif getIsBug()>
-			<cfreturn 'Bug' />
-		<cfelse>
-			<cfreturn 'Enhancement' />
-		</cfif>
+		<cfreturn getIssuetype().getName() />
 	</cffunction>
 	
 	<cffunction name="getOwnerName" access="public" returntype="string" output="false" hint="Getter for StatusName">
