@@ -52,10 +52,16 @@
 	<input type="text" id="relatedURL" name="relatedURL" value="#record.getRelatedURL()#"><br />
 	
 	<label for="attachement">Attachment: </label>
-	<span><cfif record.getAttachment().trim().length() GT 0><a href="#event.getValue( 'ApplicationConfig' ).getConfig( 'attachmentPath' )#/#record.getAttachment()#" target="_blank">#record.getAttachment()#</a><cfelse>No attachment</cfif></span> <br />
+	<span>&nbsp;&nbsp; 
+			<cfif record.getAttachment().trim().length() GT 0>
+				<a href="#event.getValue( 'ApplicationConfig' ).getConfig( 'attachmentPath' )#/#record.getAttachment()#" target="_blank">#record.getAttachment()#</a>
+				<input type="checkbox" name="deleteAttachment" value="deleteAttachment" class="checkbox" />Delete
+			<cfelse>
+				No attachment
+			</cfif>
+	</span> <br />
 	<label for="newattachment">&nbsp;</label>
 	<input type="file" name="newattachment" id="newattachment" /> <br />
-	
 	
 	<label for="useridfk">Owner: </label>
 	<select name="useridfk" id="useridfk">
