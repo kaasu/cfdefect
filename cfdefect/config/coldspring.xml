@@ -34,11 +34,6 @@
 				<property name="ApplicationConfiguration"><ref bean="ApplicationConfig" /></property>
 			</bean>
 		</property>
-		<property name="formFacade">
-			<bean class="cfdefect.com.cfdefect.facade.BaseFacade">
-				<constructor-arg name="scopeName"><value>form</value></constructor-arg>
-			</bean>
-		</property>
 		<property name="SecurityService"><ref bean="SecurityService" /></property>
 		<property name="reactorfactory"><ref bean="ReactorFactory" /></property>
 		<property name="ProjectLocusService"><ref bean="ProjectLocusService" /></property>
@@ -130,9 +125,7 @@
 		<property name="reactorfactory"><ref bean="ReactorFactory" /></property>
 	</bean>
 	
-	<bean id="SessionFacade" class="cfdefect.com.cfdefect.facade.SessionFacade">
-		<constructor-arg name="scopeName"><value>session</value></constructor-arg>
-	</bean>
+	<bean id="SessionFacade" class="cfdefect.com.cfdefect.facade.SessionFacade" />
 	
 	<bean id="ReactorFactory" class="reactor.ReactorFactory">
 		<constructor-arg name="configuration">
