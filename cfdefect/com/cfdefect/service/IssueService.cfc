@@ -115,7 +115,7 @@
 
 <cffunction name="deleteAttachment" returntype="void" access="public" output="false" hint="">
 	<cfargument name="attachment" type="string" required="true" hint="" />
-	<cfset getFileService().delete( record.getAttachment() ) />
+	<cfset getFileService().delete( arguments.attachment ) />
 </cffunction>
 
 <!--- PRIVATE METHODS --->
