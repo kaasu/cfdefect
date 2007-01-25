@@ -35,7 +35,7 @@
 	<cfelse>
 		<cfloop query="issues">
 			<cfset csv.append( '<tr>' ) />
-			<cfset csv.append( '<td><input type="checkbox" name="id" id="id" value="' & id &  '">&nbsp;</td>' )>
+			<cfset csv.append( '<td><input type="checkbox" name="chkid" value="' & id &  '">&nbsp;</td>' )>
 			<cfset csv.append( '<td>' & publicid & '</td>' )>
 			<cfset csv.append( '<td><a href="' & arguments.editlink & '&id=' & URLEncodedFormat( id ) & '">' & name & '</a></td>' )>
 			<cfset csv.append( '<td>' & type & '</td>' )>
@@ -89,7 +89,7 @@
 		<cfset local.formFacade = CreateObject( 'component', 'cfdefect.com.cfdefect.facade.BaseFacade' ).init( 'form' )>
 		<cfif local.formFacade.exists( arguments.data['newattachment_field'] ) AND len( local.formFacade.get( arguments.data['newattachment_field'] ) )>
 			<cfif Len( record.getAttachment() )>
-				<cfset getFileService().delete( record.getAttachment() ) />
+				<cfset deleteAttachment( record.getAttachment() ) />
 			</cfif>
 			
 			<cfset local.attachmentData = getFileService().upload( arguments.data['newattachment_field'] ) />
@@ -111,6 +111,11 @@
 	<cfargument name="projectidfk" type="string" required="false" hint="" />
 	<cfargument name="useridfk" type="string" required="false" hint="" />
 	<cfreturn getReactorFactory().createGateway( getTableName() ).getIssuesForProjectUser( argumentCollection=arguments ) />	
+</cffunction>
+
+<cffunction name="deleteAttachment" returntype="void" access="public" output="false" hint="">
+	<cfargument name="attachment" type="string" required="true" hint="" />
+	<cfset getFileService().delete( record.getAttachment() ) />
 </cffunction>
 
 <!--- PRIVATE METHODS --->
