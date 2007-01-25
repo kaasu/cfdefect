@@ -502,7 +502,7 @@ form.data input.small{
 	width:100px;
 }
 
-form.data input.radio{
+form.data input.radio, form.data input.checkbox{
 	width:20px;
 }
 
