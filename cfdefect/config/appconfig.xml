@@ -9,16 +9,16 @@
 		<property name="configs">
 			<map>
 				<!-- Brand/name of your application. The will be used as webpage/email title. -->
-				<entry key="AppTitle"><value>CFDefect - ColdFusion Defect Tracker</value></entry>
+				<entry key="AppTitle"><value>CFDefect (A ColdFusion Defect Tracker)</value></entry>
 				<!-- path where attachments will be placed. -->
 				<entry key="attachmentPath"><value>/cfdefect/attachments</value></entry>
 				<!-- Path where report XSLT are kept. For the most part you do not have to change this since XSLT are included with core distribustion. -->
 				<entry key="xsltPath"><value>/cfdefect/com/cfdefect/report/xslt</value></entry>
 				<!-- mail server (required) as ColdFusion default will not be used. -->
-				<entry key="mailServer"><value>mailfwd.nih.gov</value></entry>
+				<entry key="mailServer"><value>YOURMAILSERVER</value></entry>
 				<entry key="mailPort"><value>25</value></entry>
 				<!-- From address this will be used in emails generated from the system -->
-				<entry key="mailDefaultFrom"><value>rasheed@niehs.nih.gov</value></entry>
+				<entry key="mailDefaultFrom"><value>admin@localhost.com</value></entry>
 				<!-- CSS file for html emails. For the most part you do not have to change this since print CSS are included with core distribustion. -->
 				<entry key="mailCSS"><value>/cfdefect/com/cfdefect/email/email.css</value></entry>
 			</map>
@@ -32,13 +32,13 @@
 		<!-- The directory under /reactor/project in which to put generated base code. Do not modify -->
 		<property name="project"><value>cfdefect</value></property>
 		<!-- The datasource name to use. -->
-		<property name="dsn"><value>cfdefect_mysql</value></property>
+		<property name="dsn"><value>YOURDSN</value></property>
 		<!--  user name for the datasource -->
-		<property name="username"><value>root</value></property>
+		<property name="username"><value>DSNUSERNAME</value></property>
 		<!--  password name for the datasource -->
-		<property name="password"><value>cd0694</value></property>
+		<property name="password"><value>DSNPASSWORD</value></property>
 		<!-- type of database i.e. oracle, mssql, mysql4 etc. -->
-		<property name="type"><value>mysql4</value></property>
+		<property name="type"><value>DATABASETYPE</value></property>
 		<!-- The directory in which to put generated code -  do not modify this. -->
 		<property name="mapping"><value>/cfdefect/com/data</value></property>
 		<!-- Should reactor detect changes (development), run fast but not detect changes (production), or always re-generate code (always)? -->
