@@ -6,11 +6,13 @@
 		<cfparam name="attributes.xfa" type="struct" />	
 		<cfparam name="attributes.type" type="string" />
 		<cfparam name="attributes.headers" type="array" />
+		<cfparam name="attributes.showdelete" type="boolean" default="true" />
 		<cfparam name="attributes.UDF"  />
 		<cfset myself = attributes.myself />
 		<cfset xfa = attributes.xfa />
 		<cfset type = attributes.type />
 		<cfset headers = attributes.headers />
+		<cfset showdelete = attributes.showdelete /> 
 		<cfset UDF = attributes.UDF />
 		</cfsilent>
 		<cfoutput>
@@ -37,7 +39,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="#1 + ArrayLen( headers )#">[<a href="#myself##xfa.add#">Add #UDF.capFirstTitle( type )#</a>] | [<a href="##" class="delete" targetform="#type#ListForm">Delete Selected</a>]</td>
+						<td colspan="#1 + ArrayLen( headers )#">[<a href="#myself##xfa.add#">Add #UDF.capFirstTitle( type )#</a>] <cfif showdelete>| [<a href="##" class="delete" targetform="#type#ListForm">Delete Selected</a>]</cfif></td>
 					</tr>
 				</tfoot>
 			</table>		
