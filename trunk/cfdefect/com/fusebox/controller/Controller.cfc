@@ -70,6 +70,11 @@
 	<cfset arguments.event.setValue( 'recordObject', getBean( 'IssueService' ).validateAndProcess( udf.getSimpleValuesFromStruct( arguments.event.getAllValues() ) ) ) />
 </cffunction>
 
+<cffunction name="deleteIssue" returntype="void" access="public" output="false" hint="">
+	<cfargument name="event" type="any" required="true" hint="" />
+	<cfset getBean( 'IssueService' ).delete( arguments.event.getValue( 'chkid' ) ) />
+</cffunction>
+
 <cffunction name="getProjectForReport" returntype="void" access="public" output="false" hint="">
 	<cfargument name="event" type="any" required="true" hint="" />
 	<cfset arguments.event.setValue( 'qProject', getBean( 'ReportService' ).getProjects() ) />
