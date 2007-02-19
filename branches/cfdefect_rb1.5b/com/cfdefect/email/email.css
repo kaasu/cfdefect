@@ -1,0 +1,28 @@
+body {
+  color: rgb(34,70,79);
+  background-color: rgb(171,195,172);
+  font-family: verdana, helvetica, arial, sans-serif;
+  font-size: 78%;  /* Enables font size scaling in MSIE */
+  margin: 0;
+  padding: 0;
+}
+dt {
+  font-weight: bold;
+  margin: 0;
+  padding: 0 0 0.5ex 0;
+}
+
+dd {
+  margin: 0 0 1.5em 1.5em;
+  padding: 0;
+}
+#header {
+  color: white;
+  background-color: rgb(34,70,79);
+  margin: 0 0 2em 0;
+  padding: 0 2.5mm 1ex 4mm;
+  border-bottom: 2px solid white;
+}
+
+.headerTitle {margin: 0;padding: 0;}
+/*p.footnote {clear:both; margin:0;font-size:small;padding:.5em;}*/
