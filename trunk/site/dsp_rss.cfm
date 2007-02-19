@@ -1,2 +1,0 @@
-
-<cfoutput>#rssData#</cfoutput>
