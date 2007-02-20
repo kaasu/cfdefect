@@ -1,0 +1,36 @@
+
+	<bean id="ApplicationConfig2" class="cfdefect.com.cfdefect.config.ApplicationConfiguration">
+		<property name="appKey">
+			<value></value>
+		</property>
+		<property name="AppTitle">
+			<value>CFDefect (A ColdFusion Defect Tracker)</value>
+		</property>
+		<property name="attachmentPath">
+			<value>/cfdefect_site/attachments</value>
+		</property>
+		<property name="xsltPath">
+			<value>/cfdefect/com/cfdefect/report/xslt</value>
+		</property>
+		
+		<property name="configs">
+			<map>
+				<entry key="appKey"><value></value></entry>
+				<!-- Brand/name of your application. The will be used as webpage/email title. -->
+				<entry key="AppTitle"><value>CFDefect (A ColdFusion Defect Tracker)</value></entry>
+				<!-- path where attachments will be placed. -->
+				<entry key="attachmentPath"><value>/cfdefect_site/attachments</value></entry>
+				<!-- mail server (required) as ColdFusion default will not be used. -->
+				<entry key="mailServer"><value>YOURMAILSERVER</value></entry>
+				<entry key="mailPort"><value>25</value></entry>
+				<!-- From address this will be used in emails generated from the system -->
+				<entry key="mailDefaultFrom"><value>admin@localhost.com</value></entry>
+				<!-- CSS file for html emails. For the most part you do not have to change this since print CSS are included with core distribustion. -->
+				<entry key="mailCSS"><value>/cfdefect/com/cfdefect/email/email.css</value></entry>
+				<!-- Path where report XSLT are kept. For the most part you do not have to change this since XSLT are included with core distribustion. -->
+				<entry key="xsltPath"><value>/cfdefect/com/cfdefect/report/xslt</value></entry>
+			</map>
+		</property>
+	</bean>
+	
+	</bean>
