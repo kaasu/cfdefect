@@ -24,4 +24,7 @@
 			<invalidType>The name field does not contain valid data.  This field must be a string value.</invalidType>
 			<invalidLength>The name field is too long.  This field must be no more than 50 bytes long.</invalidLength>
 		</name>
+		<PROJECTLOCUSID>
+			<REQUIRED>You must select at least one project loci.</REQUIRED>
+		</PROJECTLOCUSID>
 	</project>
