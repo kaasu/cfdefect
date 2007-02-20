@@ -39,6 +39,7 @@
 			<notProvided>The password field is required but was not provided.</notProvided>
 			<invalidType>The password field does not contain valid data.  This field must be a string value.</invalidType>
 			<invalidLength>The password field is too long.  This field must be no more than 50 bytes long.</invalidLength>
+			<doNotMatch>The two passwords do not match.</doNotMatch>
 		</password>
 		<emailaddress>
 			<label>emailaddress</label>
