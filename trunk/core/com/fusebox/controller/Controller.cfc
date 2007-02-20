@@ -32,8 +32,8 @@
 	<cfargument name="event" type="any" required="true" hint="" />
 	<cfif NOT arguments.event.valueExists( 'recordObject' )>
 		<cfset arguments.event.setValue( 'recordObject', getBean( 'UserService' ).getRecord( arguments.event.getValue( 'user' ).getID() ) ) />	
-		<cfset arguments.event.setValue( 'qUserProjects', arguments.event.getValue( 'recordObject' ).getProjectIterator().getQuery() ) />
 	</cfif>
+	<cfset arguments.event.setValue( 'qUserProjects', arguments.event.getValue( 'recordObject' ).getProjectIterator().getQuery() ) />
 </cffunction>
 
 <cffunction name="savePreferences" returntype="void" access="public" output="false" hint="">
