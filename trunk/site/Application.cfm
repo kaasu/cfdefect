@@ -22,5 +22,5 @@ limitations under the License.
 					sessiontimeout="#createTimeSpan( 0, 0, 30, 0 )#">
 	
 	<cfset url['fusebox.load'] = true />
-	<cfset url['fusebox.password'] = 'cfdefect' /> 
+	<cfset url['fusebox.password'] = 'cfdefect' />
 </cfsilent>
