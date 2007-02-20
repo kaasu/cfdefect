@@ -3,8 +3,7 @@
 <!-- lexicons are utilized by using a mapped path -->
 <circuit 	access="public" 
 			xmlns:cf="/cfdefect/com/fusebox/lexicon/cf" 
-			xmlns:cs="/cfdefect/com/fusebox/lexicon/coldspring" 
-			xmlns:cd="/cfdefect/com/fusebox/lexicon/cfdefect">
+			xmlns:cs="/cfdefect/com/fusebox/lexicon/coldspring">
 	
 	<!-- public fuseactions -->
 	<fuseaction name="home">
