@@ -1,3 +1,5 @@
+/* Please do not use these */
+
 Begin  
   execute immediate 'Drop table CD_ANNOUNCEMENTS';
   Exception when others then null;
