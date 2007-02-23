@@ -7,16 +7,10 @@
 	 -->
 	 <bean id="ApplicationConfig" class="cfdefect.com.cfdefect.config.ApplicationConfiguration" init-method="configure">
 		<property name="appKey">
-			<value></value>
-		</property>
-		<property name="appURL">
-			<value>${applicationURL}</value>
-		</property>
-		<property name="appLink">
-			<value>${applicationLink}</value>
+			<value>CFDEFECTSITE1</value>
 		</property>
 		<property name="AppTitle">
-			<value>CFDefect (A ColdFusion Defect Tracker)</value>
+			<value>CFDefect (A ColdFusion Defect Tracker - MySQL)</value>
 		</property>
 		<property name="attachmentPath">
 			<value>/cfdefect_site/attachments</value>
@@ -35,6 +29,12 @@
 		</property>
 		<property name="mailCSS">
 			<value>/cfdefect/com/cfdefect/email/email.css</value>
+		</property>
+		<property name="appURL">
+			<value>${applicationURL}</value>
+		</property>
+		<property name="appLink">
+			<value>${applicationLink}</value>
 		</property>
 		<property name="ReactorFactory">
 			<ref bean="ReactorFactory" />
