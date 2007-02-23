@@ -37,7 +37,7 @@ Your preferences have been updated.
 		<input type="hidden" name="userProjects" value="#record.getUserProjects()#" />
 		<input type="hidden" name="password" value="#record.getPassword().trim()#" />
 		<input type="hidden" name="username" value="#record.getUsername().trim()#" />
-		<input type="hidden" name="admin" value="#record.getIsAdmin()#" />
+		<input type="hidden" name="isAdmin" value="#record.getIsAdmin()#" />
 
 </ui:dspGenericEditForm>
 </cfoutput>
