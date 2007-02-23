@@ -1,93 +1,87 @@
-/****** Object:  Table [dbo].[cd_announcements]   ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_announcements]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_announcements]
+/****** Object:  Table [dbo].[cd_announcement]   ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_announcement]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_announcement]
 GO
 
-/****** Object:  Table [dbo].[cd_groups]     *****/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_groups]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_groups]
+/****** Object:  Table [dbo].[cd_application]   ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_application]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_application]
 GO
 
-/****** Object:  Table [dbo].[cd_issues]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issues]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_issues]
+/****** Object:  Table [dbo].[cd_issue]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issue]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_issue]
 GO
 
-/****** Object:  Table [dbo].[cd_issues]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issuetypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_issuetypes]
+/****** Object:  Table [dbo].[cd_issue]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_issuetype]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_issuetype]
 GO
 
-/****** Object:  Table [dbo].[cd_projectloci]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projectloci]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_projectloci]
+/****** Object:  Table [dbo].[cd_projectlocus]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projectlocus]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_projectlocus]
 GO
 
-/****** Object:  Table [dbo].[cd_projects]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projects]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_projects]
+/****** Object:  Table [dbo].[cd_project]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_project]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_project]
 GO
 
-/****** Object:  Table [dbo].[cd_projects_projectloci]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projects_projectloci]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_projects_projectloci]
+/****** Object:  Table [dbo].[cd_project_projectlocus]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_project_projectlocus]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_project_projectlocus]
 GO
 
-/****** Object:  Table [dbo].[cd_projects_users]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projects_users]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_projects_users]
+/****** Object:  Table [dbo].[cd_project_user]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_project_user]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_project_user]
 GO
 
-/****** Object:  Table [dbo].[cd_projects_users_email]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_projects_users_email]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_projects_users_email]
+/****** Object:  Table [dbo].[cd_project_user_email]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_project_user_email]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_project_user_email]
 GO
 
-/****** Object:  Table [dbo].[cd_severities]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_severities]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_severities]
+/****** Object:  Table [dbo].[cd_severity]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_severity]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_severity]
 GO
 
-/****** Object:  Table [dbo].[cd_statuses]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_statuses]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_statuses]
+/****** Object:  Table [dbo].[cd_status]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_status]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_status]
 GO
 
-/****** Object:  Table [dbo].[cd_users]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_users]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_users]
+/****** Object:  Table [dbo].[cd_user]     ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_user]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[cd_user]
 GO
 
-/****** Object:  Table [dbo].[cd_users_groups]     ******/
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cd_users_groups]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table [dbo].[cd_users_groups]
-GO
-
-CREATE TABLE [cd_announcements] (
+CREATE TABLE [cd_announcement] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[title] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[body] [ntext] COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[projectidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[useridfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[posted] [datetime] NOT NULL ,
-	CONSTRAINT [PK_cd_announcements] PRIMARY KEY  CLUSTERED 
-	(
-		[id]
-	)  ON [PRIMARY] 
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-
-CREATE TABLE [cd_groups] (
-	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_groups] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_announcement] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_issues] (
+CREATE TABLE [dbo].[cd_application] (
+	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[appkey] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[title] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [cd_issue] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[projectidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[created] [datetime] NOT NULL ,
@@ -105,150 +99,102 @@ CREATE TABLE [cd_issues] (
 	[attachment] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
 	[publicid] [int] NULL ,
 	[duedate] [datetime] NULL ,
-	CONSTRAINT [PK_cd_issues] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_issue] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_issuetypes] (
+CREATE TABLE [cd_issuetype] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[rank] [int] NOT NULL ,
 	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_issuetypes] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_issuetype] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_projectloci] (
+CREATE TABLE [cd_projectlocus] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[name] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_projectloci] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_projectlocus] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_projects] (
+CREATE TABLE [cd_project] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_projects] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_project] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_projects_projectloci] (
+CREATE TABLE [cd_project_projectlocus] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[projectidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[projectlociidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_projects_users] (
+CREATE TABLE [cd_project_user] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[projectidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[useridfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_projects_users_email] (
+CREATE TABLE [cd_project_user_email] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[useridfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
 	[projectidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NULL 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_severities] (
+CREATE TABLE [cd_severity] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[rank] [int] NOT NULL ,
 	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_severities] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_severity] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_users] (
+CREATE TABLE [cd_user] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[username] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[password] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[emailaddress] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_users] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_user] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [cd_users_groups] (
-	[useridfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	[groupidfk] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL 
-) ON [PRIMARY]
-GO
-
-CREATE TABLE [cd_statuses] (
+CREATE TABLE [cd_status] (
+	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[rank] [int] NOT NULL ,
 	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	CONSTRAINT [PK_cd_statuses] PRIMARY KEY  CLUSTERED 
+	CONSTRAINT [PK_cd_status] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
 	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
-
-INSERT INTO [cd_groups](id, name) VALUES 
-('99C5AACE-92B3-7D72-6E5B4017FD38ACED','admin');
-
-INSERT INTO cd_issuetypes(id, name,rank) VALUES 
-('47B0B2F8-1111-82AF-D68EA128E83692F5','Bug', 1 );
-
-INSERT INTO cd_issuetypes(id, name,rank) VALUES 
-('47B16214-1111-82AF-D68B6F8C349D0E5F','Enhancement', 2 );
-
-INSERT INTO cd_projectloci(id, name) VALUES 
-('A5EF700C-AB69-4306-4449F6526B7009E4','Front End');
-
-INSERT INTO cd_projectloci(id, name) VALUES 
-('A5EFAF58-9200-29D3-A4CC2FC42580944D','Administration');
-
-INSERT INTO cd_projectloci(id, name) VALUES 
-('A5F0620E-F052-9042-7478FF91A21A420A','Documentation');
-
-INSERT INTO cd_projectloci(id, name) VALUES 
-('A5F174B6-AF3C-D585-4E7BCBABA1403DA5','Design');
-
-INSERT INTO cd_projectloci(id, name) VALUES 
-('A5F47B30-BB4C-8AB5-3524012968ACD958','Database');
-
-INSERT INTO cd_projectloci(id, name) VALUES 
-('D24608FA-D932-FD61-D6A16A505941A5DD','Code');
-
-INSERT INTO cd_severities(id, name, rank)  VALUES 
-('B39A54CA-9301-0F14-4A3A11FAB743FC0A','Low',1);
-
-INSERT INTO cd_severities(id, name, rank) VALUES 
-('B39AD7F4-B8B1-2D90-80C3EFB34D77C27B','Normal',2);
-
-INSERT INTO cd_severities(id, name, rank) VALUES 
-('B39AF9E4-A525-B9AE-20F2B6728C98A61B','High',3);
-
-INSERT INTO cd_statuses(id, name, rank) VALUES 
-('B39CBA41-F798-06C7-3C7B89400E935B36','Open',1);
-
-INSERT INTO cd_statuses(id, name, rank) VALUES 
-('B39CDD69-BC54-D278-386E2C062727CCEE','Fixed',2);
-
-INSERT INTO cd_statuses(id, name, rank) VALUES 
-('B39D0043-B9C9-B5CB-85A208D3154A760F','Closed',3);
-
-INSERT INTO cd_users(id,name, username, password,emailaddress) values 
-('94CC6A2B-A60E-187D-5BFEA49A0FB60145','admin','admin','password','admin@localhost.com');
-
-INSERT INTO cd_users_groups(groupidfk, useridfk) VALUES 
-('99C5AACE-92B3-7D72-6E5B4017FD38ACED','94CC6A2B-A60E-187D-5BFEA49A0FB60145');
