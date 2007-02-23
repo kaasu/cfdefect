@@ -8,10 +8,28 @@
 		<object name="cd_announcement" alias="announcement"  />
 	
 		<object name="cd_application" alias="application">
+			<hasMany name="announcement">
+				<relate from="id" to="applicationid" />
+			</hasMany>
+			<hasMany name="issue">
+				<relate from="id" to="applicationid" />
+			</hasMany>
 			<hasMany name="issuetype">
 				<relate from="id" to="applicationid" />
 			</hasMany>
+			<hasMany name="project">
+				<relate from="id" to="applicationid" />
+			</hasMany>
+			<hasMany name="projectProjectLocus">
+				<relate from="id" to="applicationid" />
+			</hasMany>
 			<hasMany name="projectlocus">
+				<relate from="id" to="applicationid" />
+			</hasMany>
+			<hasMany name="projectUser">
+				<relate from="id" to="applicationid" />
+			</hasMany>
+			<hasMany name="projectUserEmail">
 				<relate from="id" to="applicationid" />
 			</hasMany>
 			<hasMany name="severity">
