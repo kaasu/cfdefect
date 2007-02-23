@@ -20,7 +20,7 @@
 		
 	<!--- if there were no errors --->
 	<cfif NOT local.recordHolder['new'].hasErrors()>
-		<cfset getIssueNotificationProcessor().sendNotification( local.recordHolder ) />
+		<!--- <cfset getIssueNotificationProcessor().sendNotification( local.recordHolder ) /> --->
 	</cfif>
 	<cfreturn local.recordHolder['new'] />
 </cffunction>
