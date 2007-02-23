@@ -78,18 +78,16 @@
 		</row>
 	</table>
 	
-	<table name="issue" iterator="false" />
+	<table name="issue" />
 	
-	<table name="application" iterator="false" />
+	<table name="announcement" />
 	
-	<table name="announcement" iterator="false" />
+	<table name="project" />
 	
-	<table name="project" iterator="false" />
+	<table name="projectProjectLocus" />
 	
-	<table name="projectProjectLocus" iterator="false" />
+	<table name="projectUser" />
 	
-	<table name="projectUser" iterator="false" />
-	
-	<table name="projectUserEmail" iterator="false" />
+	<table name="projectUserEmail" />
 	
 </dataset>
