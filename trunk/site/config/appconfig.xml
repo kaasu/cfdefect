@@ -6,42 +6,39 @@
 	Please feel free to modify values but do not delete this section.
 	 -->
 	 <bean id="ApplicationConfig" class="cfdefect.com.cfdefect.config.ApplicationConfiguration" init-method="configure">
+	 	<!-- this will uniquely identify your cfdefect application  -->
 		<property name="appKey">
 			<value>CFDEFECTSITE1</value>
 		</property>
+		<!-- Brand/name of your application. The will be used as webpage/email title. -->
 		<property name="AppTitle">
-			<value>CFDefect (A ColdFusion Defect Tracker - MySQL)</value>
+			<value>CFDefect (A ColdFusion Defect Tracker)</value>
 		</property>
-		<property name="attachmentPath">
-			<value>/cfdefect_site/attachments</value>
-		</property>
-		<property name="xsltPath">
-			<value>/cfdefect/com/cfdefect/report/xslt</value>
-		</property>
+		<!-- mail server (required) as ColdFusion default will not be used. -->
 		<property name="mailServer">
 			<value>YOURMAILSERVER</value>
 		</property>
 		<property name="mailPort">
 			<value>25</value>
 		</property>
+		<!-- From address this will be used in emails generated from the system -->
 		<property name="mailDefaultFrom">
 			<value>admin@localhost.com</value>
 		</property>
-		<property name="mailCSS">
-			<value>/cfdefect/com/cfdefect/email/email.css</value>
+		<!-- path where issue/bug attachments will be placed. -->
+		<property name="attachmentPath">
+			<value>/YOURSITEADDRESS/attachments</value>
 		</property>
-		<property name="appURL">
-			<value>${applicationURL}</value>
-		</property>
-		<property name="appLink">
-			<value>${applicationLink}</value>
-		</property>
-		<property name="ReactorFactory">
-			<ref bean="ReactorFactory" />
-		</property>
-		<property name="dataset">
-			<value>/cfdefect/config/dataset.xml</value>
-		</property>
+		<!-- please do not modify values below this.  -->
+		<!-- CSS file for html emails. For the most part you do not have to change this since print CSS are included with core distribustion. -->
+		<property name="mailCSS"><value>/cfdefect/com/cfdefect/email/email.css</value></property>
+		<property name="appURL"><value>${applicationURL}</value></property>
+		<property name="appLink"><value>${applicationLink}</value></property>
+		<property name="ReactorFactory"><ref bean="ReactorFactory" /></property>
+		<!-- File which contains the initial data. Please do not modify  -->
+		<property name="dataset"><value>/cfdefect/config/dataset.xml</value></property>
+		<!-- Path where report XSLT are kept. For the most part you do not have to change this since XSLT are included with core distribustion. -->
+		<property name="xsltPath"><value>/cfdefect/com/cfdefect/report/xslt</value></property>
 	</bean>
 	
 	<!-- Reactor Configuration -->
@@ -51,7 +48,7 @@
 		<!-- The directory under /reactor/project in which to put generated base code. Do not modify -->
 		<property name="project"><value>cfdefect</value></property>
 		<!-- The datasource name to use. -->
-		<property name="dsn"><value>cfdefect_mysqlv2</value></property>
+		<property name="dsn"><value>YOURDATASOURCENAME</value></property>
 		<!--  user name for the datasource -->
 		<property name="username"><value></value></property>
 		<!--  password name for the datasource -->
@@ -61,7 +58,7 @@
 		<!-- The directory in which to put generated code -  do not modify this. -->
 		<property name="mapping"><value>/cfdefect/com/data</value></property>
 		<!-- Should reactor detect changes (development), run fast but not detect changes (production), or always re-generate code (always)? -->
-		<property name="mode"><value>development</value></property>
+		<property name="mode"><value>production</value></property>
 	</bean>
 	
 	<!-- *******************************************************************************
