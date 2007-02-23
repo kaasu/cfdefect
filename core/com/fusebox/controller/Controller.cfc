@@ -24,7 +24,7 @@
 	arguments.event.setValue( 'UDF', getBean( 'UDF' ) );;
 	arguments.event.setValue( 'ApplicationConfig', getBean( 'ApplicationConfig' ) );
 	arguments.event.setValue( 'ApplicationTitle', arguments.event.getValue( 'ApplicationConfig' ).getAppTitle() );
-	arguments.event.setValue( 'ApplicationID', arguments.event.getValue( 'ApplicationConfig' ).getAppKey() );
+	arguments.event.setValue( 'ApplicationID', arguments.event.getValue( 'ApplicationConfig' ).getAppID() );
 	</cfscript>
 </cffunction>
 
