@@ -34,7 +34,4 @@ myFusebox.getApplication().getApplicationData().put( COLDSPRING_FACTORY_NAME, se
 application.serviceFactory = myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ); 
 </cfscript>
 </cfsilent>
-<!--- <cfset rf = application.serviceFactory.getBean( 'ReactorFactory' ) />
-<cfset user = rf.createRecord( 'project' )>
-<cfdump var="#user#"><cfabort> --->
 
