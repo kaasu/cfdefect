@@ -5,12 +5,7 @@
 </cffunction>
 
 <cffunction name="configure" returntype="void" access="public" output="false" hint="I am called by ColdSpring during initialization.">
-	<cfset var appRecord =  getReactorFactory().createRecord( 'application' ) />
-	<cfif getAppKey().trim().length() GT 0>
-		<cfset appRecord.load( id = Hash( getAppKey() ) ) />
-	<cfelse>
-		<cfset appRecord.load( id = Hash( getAppURL() ) )>
-	</cfif>
+	<cfset var appRecord =  getReactorFactory().createRecord( 'application' ).load( key = getAppKey() ) />
 	<cfif NOT appRecord.exists()>
 		<cftransaction>
 			<cfset appRecord.setTitle( getAppTitle() ) />
@@ -18,7 +13,7 @@
 			<cfset appRecord.save( useTransaction=false ) />
 		</cftransaction>
 	</cfif>
-	<cfset setAppKey( appRecord.getID() ) />
+	<cfset setAppID( appRecord.getID() ) />
 </cffunction>
 
 <cffunction name="loadData" returntype="void" access="private" output="false" hint="">
@@ -30,38 +25,39 @@
 	<cfloop from="1" to="#ArrayLen( local.tables )#" index="i">
 	<!--- <cfloop from="1" to="1" index="i"> --->
 		<cfset local.tableName = local.tables[i].XMLAttributes.name />
-		<cfset local.hasIterator = true />
-		<cfif StructKeyExists( local.tables[i].XMLAttributes, 'iterator' )>
-			<cfset local.hasIterator = local.tables[i].XMLAttributes.iterator />
-		</cfif>
 		<cfinvoke component="#getReactorFactory().createGateway( local.tableName )#" method="deleteByFields">
 			<cfinvokeargument name="applicationid" value="#arguments.appRecord.getID()#" />
 		</cfinvoke>
-		
-		<cfif local.hasIterator>
-			<cfinvoke component="#arguments.appRecord#" method="get#local.tableName#Iterator" returnvariable="local.iterator" />	
-			<!--- Reactor's deleteAll on Iterator doesn't have an argument for useTransaction so we are manually looping through the iterator and deleting records --->
-			<!--- <cfloop condition="#local.iterator.hasMore()#">
-				<cfset local.iterator.getAt(1).delete( useTransaction=false ) />
-			</cfloop> --->
-			<cfset local.rows = XMLSearch( local.tables[i], '//dataset/table[@name="' &  local.tableName & '"]/*' ) />
-			<cfloop from="1" to="#ArrayLen( local.rows )#" index="j">
-				<cfinvoke component="#local.iterator#" method="add">
-					<cfinvokeargument name="applicationid" value="#arguments.appRecord.getID()#" />
-					<cfinvokeargument name="id" value="0" />
-					<cfloop from="1" to="#ArrayLen( local.rows[j].XMLChildren )#" index="k">
-						<cfinvokeargument name="#local.rows[j].XMLChildren[k].XMLAttributes.name#" value="#local.rows[j].XMLChildren[k].XMLAttributes.value#" />		
-					</cfloop>
-				</cfinvoke>
-			</cfloop> 
-		</cfif>
-		
+		<cfinvoke component="#arguments.appRecord#" method="get#local.tableName#Iterator" returnvariable="local.iterator" />	
+		<!--- Reactor's deleteAll on Iterator doesn't have an argument for useTransaction so we are manually looping through the iterator and deleting records --->
+		<!--- <cfloop condition="#local.iterator.hasMore()#">
+			<cfset local.iterator.getAt(1).delete( useTransaction=false ) />
+		</cfloop> --->
+		<cfset local.rows = XMLSearch( local.tables[i], '//dataset/table[@name="' &  local.tableName & '"]/*' ) />
+		<cfloop from="1" to="#ArrayLen( local.rows )#" index="j">
+			<cfinvoke component="#local.iterator#" method="add">
+				<cfinvokeargument name="applicationid" value="#arguments.appRecord.getID()#" />
+				<cfinvokeargument name="id" value="0" />
+				<cfloop from="1" to="#ArrayLen( local.rows[j].XMLChildren )#" index="k">
+					<cfinvokeargument name="#local.rows[j].XMLChildren[k].XMLAttributes.name#" value="#local.rows[j].XMLChildren[k].XMLAttributes.value#" />		
+				</cfloop>
+			</cfinvoke>
+		</cfloop> 
 	</cfloop>
 </cffunction>
 
 <!--- PUBLIC METHODS --->
 <cffunction name="getVersion" returntype="string" access="public" output="false" hint="">
 	<cfreturn '1.0b' />
+</cffunction>
+
+<cffunction name="getAppID" access="public" returntype="string" output="false" hint="Getter for AppID">
+	<cfreturn variables.instance.AppID />
+</cffunction>
+
+<cffunction name="setAppID" access="public" returntype="void" output="false" hint="Setter for AppID">
+	<cfargument name="AppID" type="string" required="true" />
+	<cfset variables.instance.AppID = arguments.AppID>
 </cffunction>
 
 <cffunction name="getAppURL" access="public" returntype="string" output="false" hint="Getter for AppURL">

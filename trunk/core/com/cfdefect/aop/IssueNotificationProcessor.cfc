@@ -100,7 +100,6 @@ Link: #arguments.emailRecord.link#
 	<cfreturn ret />
 </cffunction>
 
-
 <cffunction name="getSubject" returntype="string" access="private" output="false" hint="">
 	<cfargument name="record" type="reactor.base.AbstractRecord" required="true" hint="" />
 	<cfset var toObj = arguments.record._getTO() />

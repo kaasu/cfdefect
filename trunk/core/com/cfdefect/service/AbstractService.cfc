@@ -58,7 +58,7 @@
 
 <!--- PRIVATE METHODS --->
 <cffunction name="getApplicationID" returntype="string" access="private" output="false" hint="">
-	<cfreturn getApplicationConfiguration().getAppKey() />
+	<cfreturn getApplicationConfiguration().getAppID() />
 </cffunction>
 
 <!--- GETTER & SETTER --->

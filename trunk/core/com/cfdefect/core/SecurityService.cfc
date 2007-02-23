@@ -14,7 +14,7 @@
 	<cfargument name="password" type="string" required="true" hint="" />
 	<cfset var userRecord = getReactorFactory().createRecord( 'user' )>
 	<cfset logout() />
-	<cfset userRecord.load( applicationid=getApplicationConfiguration().getAppKey(),
+	<cfset userRecord.load( applicationid=getApplicationConfiguration().getAppID(),
 							username=arguments.username.trim(), 
 							password=arguments.password.trim() ) />
 	<cfif userRecord.getID().trim().length() GT 0>
