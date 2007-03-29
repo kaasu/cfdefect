@@ -17,7 +17,14 @@ limitations under the License.
 	<!--- using #hash( getCurrentTemplatePath() )# makes this application name unique to this application --->
 	<cfset myAppName = hash( getCurrentTemplatePath() ) />
 	<cfapplication 	name="#myAppName#"
-					applicationtimeout="#createTimeSpan( 0, 1, 0, 0 )#"
+					applicationtimeout="#CreateTimeSpan( 0, 1, 0, 0 )#"
 					sessionmanagement="true"
-					sessiontimeout="#createTimeSpan( 0, 0, 30, 0 )#">
+					sessiontimeout="#CreateTimeSpan( 0, 0, 30, 0 )#">
+					
+	<cfif IsDefined("Cookie.CFID") AND IsDefined("Cookie.CFTOKEN")>
+  		<cfset localCFID = Cookie.CFID>
+  		<cfset localCFTOKEN = Cookie.CFTOKEN>
+  		<cfcookie name="CFID" value="#localCFID#">
+  		<cfcookie name="CFTOKEN" value="#localCFTOKEN#">
+	</cfif>				
 </cfsilent>
