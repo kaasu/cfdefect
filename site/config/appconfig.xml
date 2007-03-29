@@ -48,7 +48,7 @@
 		<!-- The directory under /reactor/project in which to put generated base code. Do not modify -->
 		<property name="project"><value>cfdefect</value></property>
 		<!-- The datasource name to use. -->
-		<property name="dsn"><value>YOURDATASOURCENAME</value></property>
+		<property name="dsn"><value>YOURDATASOURCE</value></property>
 		<!--  user name for the datasource -->
 		<property name="username"><value></value></property>
 		<!--  password name for the datasource -->
