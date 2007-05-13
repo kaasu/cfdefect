@@ -76,7 +76,11 @@ GO
 CREATE TABLE [dbo].[cd_application] (
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[appkey] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
-	[title] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL 
+	[title] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	CONSTRAINT [PK_cd_application] PRIMARY KEY  CLUSTERED 
+	(
+		[id]
+	)  ON [PRIMARY] 
 ) ON [PRIMARY]
 GO
 
@@ -122,6 +126,7 @@ CREATE TABLE [cd_projectlocus] (
 	[applicationid] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[id] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[name] [nvarchar] (35) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[rank] [int] NOT NULL ,
 	CONSTRAINT [PK_cd_projectlocus] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
@@ -180,6 +185,7 @@ CREATE TABLE [cd_user] (
 	[password] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[emailaddress] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[isadmin] [bit] NOT NULL
 	CONSTRAINT [PK_cd_user] PRIMARY KEY  CLUSTERED 
 	(
 		[id]
