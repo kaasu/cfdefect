@@ -5,7 +5,7 @@
 </cffunction>
 
 <cffunction name="configure" returntype="void" access="public" output="false" hint="I am called by ColdSpring during initialization.">
-	<cfset var appRecord =  getReactorFactory().createRecord( 'application' ).load( key = getAppKey() ) />
+	<cfset var appRecord =  getReactorFactory().createRecord( 'application' ).load( appkey = getAppKey() ) />
 	<cfif NOT appRecord.exists()>
 		<cftransaction>
 			<cfset appRecord.setTitle( getAppTitle() ) />
