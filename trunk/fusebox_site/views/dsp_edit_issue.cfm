@@ -54,7 +54,7 @@
 	<label for="attachement">Attachment: </label>
 	<span>&nbsp;&nbsp; 
 			<cfif record.getAttachment().trim().length() GT 0>
-				<a href="#event.getValue( 'ApplicationConfig' ).getConfig( 'attachmentPath' )#/#record.getAttachment()#" target="_blank">#record.getAttachment()#</a>
+				<a href="#event.getValue( 'ApplicationConfig' ).getAttachmentPath()#/#record.getAttachment()#" target="_blank">#record.getAttachment()#</a>
 				<input type="checkbox" name="deleteAttachment" value="deleteAttachment" class="checkbox" />Delete
 			<cfelse>
 				No attachment
