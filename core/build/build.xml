@@ -24,56 +24,6 @@
 	</target>
 	
 	<target name="zip" depends="getsource">
-		<zip destfile="${dir.dist}cfdefect.zip" basedir="${dir.src}" />
+		<zip destfile="${dir.dist}cfdefect.zip" basedir="${dir.src}" excludes="cfdefect/build/**" />
 	</target>
-	
-    <macrodef name="svnCheckout">
-		<attribute name="dir" />
-		<attribute name="repositoryURL" />
-        <attribute name="username" />
-		<attribute name="password" />
-		<attribute name="tag" default="none" />
-        <sequential>
-            <echo
-                message="Get the latest version of code from subversion"/>
-            <svn username="@{username}" password="@{password}" >
-                <checkout url="@{repositoryURL}" destPath="@{dir}"/>
-            </svn>
-        </sequential>
-	</macrodef>	
-	
-	<macrodef name="zipdist">
-		<attribute name="dir" />
-		<element name="excludes" optional="true" />
-		<sequential>
-			<parallel threadCount="2">
-				<echo message="Zip extensions folder to an extension.zip file." />
-				<zip destfile="@{dir}/extensions.zip">
-					<fileset dir="@{dir}/extensions" />
-				</zip>
-				<echo message="Zip rest of application code to a sitecode.zip file." />
-				<zip destfile="@{dir}/sitecode.zip">
-					<fileset dir="@{dir}">
-						<excludes />
-					</fileset>
-				</zip>
-			</parallel>
-		</sequential>
-	</macrodef>	
-
-
-	
-	<macrodef name="unzipcode">
-		<attribute name="dir" />
-		<attribute name="zipfile" />
-		<sequential>
-			<echo message="Start Unzip @{zipfile} to @{dir}" />
-			<unzip dest="@{dir}" overwrite="true" src="@{dir}\@{zipfile}.zip" />
-			<delete file="@{dir}\@{zipfile}.zip" failonerror="false" />
-			<echo message="Completed unzip @{zipfile} to @{dir}" />
-		</sequential>
-	</macrodef>
-
-	
-	
 </project>
