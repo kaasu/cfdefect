@@ -40,7 +40,8 @@
 		<property name="StatusService"><ref bean="StatusService" /></property>
 		<property name="UserService"><ref bean="UserService" /></property>		
 		<property name="IssueTypeService"><ref bean="IssueTypeService" /></property>
-		<property name="ApplicationConfiguration"><ref bean="ApplicationConfig" /></property>		
+		<property name="ApplicationConfiguration"><ref bean="ApplicationConfig" /></property>
+		<property name="UDF"><ref bean="UDF" /></property>		
 	</bean>
 	
 	<!-- Proxy bean for IssueService. -->
