@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="CFDefect Export">	
+	
+	<taskdef resource="svntask.properties" />
+	
+	<property name="svn_core" value="http://cfdefect.googlecode.com/svn/trunk/core" />
+	<property name="svn_fbsite" value="http://cfdefect.googlecode.com/svn/trunk/fusebox_site" />
+	<property name="dir.src" value="c:/temp/cfdefect/" />
+	<property name="dir.dist" value="c:/temp/cfdefectdist/" />
+	<property name="version" value="1_1" />
+	<target name="init">
+		<delete dir="${dir.src}" />
+		<mkdir dir="${dir.src}" />
+		<delete dir="${dir.dist}" />
+		<mkdir dir="${dir.dist}" />
+	</target>
+	
+	<target name="getsource" depends="init">
+		<svn>
+			<export srcUrl="${svn_core}" destPath="${dir.src}cfdefect" />
+			<export srcUrl="${svn_fbsite}" destPath="${dir.src}cfdefect_site" />
+		</svn>
+	</target>
+	
+	<target name="zip" depends="getsource">
+		<zip destfile="${dir.dist}cfdefect.zip" basedir="${dir.src}" />
+	</target>
+	
+    <macrodef name="svnCheckout">
+		<attribute name="dir" />
+		<attribute name="repositoryURL" />
+        <attribute name="username" />
+		<attribute name="password" />
+		<attribute name="tag" default="none" />
+        <sequential>
+            <echo
+                message="Get the latest version of code from subversion"/>
+            <svn username="@{username}" password="@{password}" >
+                <checkout url="@{repositoryURL}" destPath="@{dir}"/>
+            </svn>
+        </sequential>
+	</macrodef>	
+	
+	<macrodef name="zipdist">
+		<attribute name="dir" />
+		<element name="excludes" optional="true" />
+		<sequential>
+			<parallel threadCount="2">
+				<echo message="Zip extensions folder to an extension.zip file." />
+				<zip destfile="@{dir}/extensions.zip">
+					<fileset dir="@{dir}/extensions" />
+				</zip>
+				<echo message="Zip rest of application code to a sitecode.zip file." />
+				<zip destfile="@{dir}/sitecode.zip">
+					<fileset dir="@{dir}">
+						<excludes />
+					</fileset>
+				</zip>
+			</parallel>
+		</sequential>
+	</macrodef>	
+
+
+	
+	<macrodef name="unzipcode">
+		<attribute name="dir" />
+		<attribute name="zipfile" />
+		<sequential>
+			<echo message="Start Unzip @{zipfile} to @{dir}" />
+			<unzip dest="@{dir}" overwrite="true" src="@{dir}\@{zipfile}.zip" />
+			<delete file="@{dir}\@{zipfile}.zip" failonerror="false" />
+			<echo message="Completed unzip @{zipfile} to @{dir}" />
+		</sequential>
+	</macrodef>
+
+	
+	
+</project>
