@@ -117,9 +117,15 @@
 		<xfa name="edit" value="editIssue">
 			<parameter name="projectidfk" value="#event.getValue( 'projectidfk' )#" />
 		</xfa>
-		<invoke object="AjaxController" methodcall="getIssuesForProject( event, myself, xfa.edit )" />
+		<xfa name="add" value="editIssue">
+			<parameter name="projectidfk" value="#event.getValue( 'projectidfk' )#" />
+		</xfa>
+		<xfa name="delete" value="deleteIssue">
+			<parameter name="projectidfk" value="#event.getValue( 'projectidfk' )#" />
+		</xfa>
+		<invoke object="AjaxController" methodcall="getIssuesForProject( event, myself, xfa )" />
 	</fuseaction>
-	
+		
 	<fuseaction name="reports">
 		<do action="reportform" contentvariable="content.pageContent" />
 		<do action="layout" />

@@ -51,9 +51,11 @@
 </fieldset>
 </form>
 <br />
-<ui:dspDataTable 	myself="#myself#" 
-					xfa="#xfa#" 
-					type="issue" 
-					udf="#event.getValue( 'UDF' )#" 
-					headers="#columns#" />
+<div id="issues">
+	<ui:dspDataTable 	myself="#myself#" 
+						xfa="#xfa#" 
+						type="issue" 
+						udf="#event.getValue( 'UDF' )#" 
+						headers="#columns#" />
+</div>	
 </cfoutput>

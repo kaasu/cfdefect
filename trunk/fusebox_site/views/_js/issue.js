@@ -11,9 +11,9 @@ function Issue(link){
 					method: 'get', 
 					parameters: pars, 
 					onComplete : function(resp,jsonObj){
-						var tbody = $('issueTable').getElementsByTagName('tbody')[0];
-						tbody.innerHTML = '';
-						tbody.innerHTML = resp.responseText.trim();							
+						var issueDiv = $$("div#issues")[0];
+						issueDiv.innerHTML = '';
+						issueDiv.innerHTML = resp.responseText;							
 					}
 				}
 		);
