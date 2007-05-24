@@ -19,6 +19,8 @@
 <cffunction name="formatIssuesForProject" returntype="string" access="public" output="false" hint="">
 	<cfargument name="projectidfk" type="string" required="true" hint="" />
 	<cfargument name="editlink" type="string" required="true" hint="" />
+	<cfargument name="addlink" type="string" required="false" hint="" />
+	<cfargument name="deletelink" type="string" required="false" hint="" />
 	<cfargument name="issue_type_selected" type="string" default="" hint="" />
 	<cfargument name="locus_selected" type="string" default="" hint="" />
 	<cfargument name="severity_selected" type="string" default="" hint="" />
@@ -26,32 +28,47 @@
 	<cfargument name="user_selected" type="string" default="" hint="" />
 	<cfargument name="keyword" type="string" default="" hint="" />
 	<cfset var issues = getIssueForProject( argumentCollection=arguments ) />
-	<cfset var csv = CreateObject( 'java', 'java.lang.StringBuffer') />
+	<cfset var sb = CreateObject( 'java', 'java.lang.StringBuffer') />
+	<cfset var columns = getColumns() />
+	<cfset var i = '' />
+	<cfset sb.append( '<form id="issueListForm" name="issueListForm" method="post" action="#arguments.deletelink#">' ) />
+	<cfset sb.append( '<table border="1" width="100%" id="issueTable" class="data">' ) />
+	<cfset sb.append( '<caption>Issues <br /><p>Use the form below to select an issue to edit. You may also create or delete an issue.</p></caption>' ) />
+	<cfset sb.append( '<thead><tr><th width="2%">&nbsp;</th>' ) />
+	<cfloop list="#columns#" index="i"  delimiters="~">
+		<cfset sb.append( '<th>' & getUDF().capFirstTitle( Replace( i, '_', ' ', 'All' ) ) & '</th>' ) />
+	</cfloop>
+	<cfset sb.append( '</thead>' ) />
+	<cfset sb.append( '<tbody>' ) />
 	<cfif NOT issues.recordcount>
-		<cfset csv.append( '<tr>' ) />
-		<cfset csv.append( '<td colspan="10">No record(s) found</td>' ) >
-		<cfset csv.append( '</tr>' ) />
+		<cfset sb.append( '<tr>' ) />
+		<cfset sb.append( '<td colspan="#ListLen( columns, '~' ) + 1#">No record(s) found</td>' ) >
+		<cfset sb.append( '</tr>' ) />
 	<cfelse>
 		<cfloop query="issues">
-			<cfset csv.append( '<tr>' ) />
-			<cfset csv.append( '<td><input type="checkbox" name="chkid" value="' & id &  '">&nbsp;</td>' )>
-			<cfset csv.append( '<td>' & publicid & '</td>' )>
-			<cfset csv.append( '<td><a href="' & arguments.editlink & '&id=' & URLEncodedFormat( id ) & '">' & name & '</a></td>' )>
-			<cfset csv.append( '<td>' & type & '</td>' )>
-			<cfset csv.append( '<td>' & locus & '</td>' )>
-			<cfset csv.append( '<td>' & severity & '</td>' )>
-			<cfset csv.append( '<td>' & status & '</td>' )>
-			<cfset csv.append( '<td>' & owner & '</td>' )>
+			<cfset sb.append( '<tr>' ) />
+			<cfset sb.append( '<td><input type="checkbox" name="chkid" value="' & id &  '">&nbsp;</td>' )>
+			<cfset sb.append( '<td>' & publicid & '</td>' )>
+			<cfset sb.append( '<td><a href="' & arguments.editlink & '&id=' & URLEncodedFormat( id ) & '">' & name & '</a></td>' )>
+			<cfset sb.append( '<td>' & type & '</td>' )>
+			<cfset sb.append( '<td>' & locus & '</td>' )>
+			<cfset sb.append( '<td>' & severity & '</td>' )>
+			<cfset sb.append( '<td>' & status & '</td>' )>
+			<cfset sb.append( '<td>' & owner & '</td>' )>
 			<cfif Trim( due_date ) neq ''>
-				<cfset csv.append( '<td>' & DateFormat( due_date, 'mm/dd/yyyy' ) & '</td>' )>
+				<cfset sb.append( '<td>' & DateFormat( due_date, 'mm/dd/yyyy' ) & '</td>' )>
 			<cfelse>
-				<cfset csv.append( '<td>&nbsp;</td>' )>
+				<cfset sb.append( '<td>&nbsp;</td>' )>
 			</cfif>
-			<cfset csv.append( '<td>' & DateFormat( updated, 'mm/dd/yyyy' ) & '</td>' )>
-			<cfset csv.append( '</tr>' ) />
+			<cfset sb.append( '<td>' & DateFormat( updated, 'mm/dd/yyyy' ) & '</td>' )>
+			<cfset sb.append( '</tr>' ) />
 		</cfloop>
 	</cfif>
-	<cfreturn csv.toString() />
+	<cfset sb.append( '</tbody>' ) />
+	<cfset sb.append( '<tfoot><tr><td colspan="#ListLen( columns, '~' ) + 1#">[<a href="#arguments.addLink#">Add Issue</a>] [<a href="##" class="delete" targetform="issueListForm">Delete Selected</a>]</td></tr></tfoot>' ) />
+	<cfset sb.append( '</table>' ) />
+	<cfset sb.append( '</form>' ) />
+	<cfreturn sb.toString() />
 </cffunction>
 
 <cffunction name="getIssueForProject" returntype="query" access="public" output="false" hint="">
@@ -187,5 +204,13 @@
 	<cfset variables.instance.UserService = arguments.UserService>
 </cffunction>
 
+<cffunction name="getUDF" access="public" returntype="cfdefect.com.cfdefect.core.UDF" output="false" hint="Getter for UDF">
+	<cfreturn variables.instance.UDF />
+</cffunction>
+
+<cffunction name="setUDF" access="public" returntype="void" output="false" hint="Setter for UDF">
+	<cfargument name="UDF" type="cfdefect.com.cfdefect.core.UDF" required="true" />
+	<cfset variables.instance.UDF = arguments.UDF>
+</cffunction>
 
 </cfcomponent>

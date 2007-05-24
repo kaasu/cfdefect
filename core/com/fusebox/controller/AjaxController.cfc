@@ -8,11 +8,13 @@
 <cffunction name="getIssuesForProject"  returntype="void" access="public" output="true" hint="">
 	<cfargument name="event" type="any" required="true" hint="" />
 	<cfargument name="myself" type="string" required="true" hint="" />
-	<cfargument name="editXFA" type="string" required="true" hint="" />
+	<cfargument name="xfa" type="struct" required="true" hint="" />
 	<cfset var temp =  "" />
 	<cfinvoke component="#getBean( 'IssueService' )#" method="formatIssuesForProject" returnvariable="temp">
 		<cfinvokeargument name="projectidfk" value="#URLDecode( arguments.event.getValue( 'projectidfk' ) )#" />
-		<cfinvokeargument name="editlink" value="#arguments.myself##arguments.editXFA#" />
+		<cfinvokeargument name="editlink" value="#arguments.myself##arguments.xfa.edit#" />
+		<cfinvokeargument name="addLink" value="#arguments.myself##arguments.xfa.add#" />
+		<cfinvokeargument name="deletelink" value="#arguments.myself##arguments.xfa.delete#" />
 		<cfinvokeargument name="issue_type_selected" value="#arguments.event.getValue( 'issue_type_selected','' )#" />
 		<cfinvokeargument name="locus_selected" value="#arguments.event.getValue( 'locus_selected', '' )#" />
 		<cfinvokeargument name="severity_selected" value="#arguments.event.getValue( 'severity_selected', '' )#" />
