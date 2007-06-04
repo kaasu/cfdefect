@@ -72,8 +72,5 @@
 	<bean id="AdminController" class="cfdefect.com.fusebox.controller.AdminController" />
 	
 	<bean id="SecurityController" class="cfdefect.com.fusebox.controller.SecurityController" />
-	
-	 <!-- path to core components coldspring file. -->
-	<import resource="/cfdefect/config/coldspring.xml" />
 			
 </beans>
