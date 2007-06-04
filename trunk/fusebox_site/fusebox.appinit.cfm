@@ -30,6 +30,7 @@ defaultProperties.applicationURL = applicationURL;
 defaultProperties.applicationLink = applicationURL & '/' & myFusebox.getMySelf();
 serviceFactory = CreateObject( 'component', 'coldspring.beans.DefaultXmlBeanFactory' ).init ( defaultProperties=defaultProperties );
 serviceFactory.loadBeans( beanDefinitionFileName=myFuseBox.getApplication().approotdirectory & '/config/appconfig.xml' );
+serviceFactory.loadBeans( beanDefinitionFileName = ExpandPath( '/cfdefect/config/coldspring.xml' )  );
 myFusebox.getApplication().getApplicationData().put( COLDSPRING_FACTORY_NAME, serviceFactory );
 application.serviceFactory = myFusebox.getApplication().getApplicationData().get( COLDSPRING_FACTORY_NAME ); 
 </cfscript>
