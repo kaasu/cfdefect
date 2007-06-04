@@ -24,6 +24,6 @@
 	</target>
 	
 	<target name="zip" depends="getsource">
-		<zip destfile="${dir.dist}cfdefect.zip" basedir="${dir.src}" excludes="cfdefect/build/**" />
+		<zip destfile="${dir.dist}cfdefectv${version}.zip" basedir="${dir.src}" excludes="cfdefect/build/**" />
 	</target>
 </project>
