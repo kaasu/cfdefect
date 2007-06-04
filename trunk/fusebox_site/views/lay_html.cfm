@@ -70,7 +70,7 @@
       	<br class="doNotDisplay doNotPrint" />
     </div>
     <div class="subFooter">
-    	CFDefect version #event.getValue( 'ApplicationConfig' ).getVersion()# Copyright &copy; 2007, Qasim Rasheed<br class="doNotPrint" />
+    	CFDefect version #event.getValue( 'ApplicationConfig' ).getVersion()# Copyright &copy; 2007, <a href="http://www.qasimrasheed.com" target="_blank">Qasim Rasheed</a><br class="doNotPrint" />
     </div>
 </body>
 </cfoutput>
